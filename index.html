@@ -3,12 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Ícones RemixIcon -->
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <!-- Fontes Google (Playfair Display e Poppins) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -16,19 +14,14 @@
     <title>Veja Lagarto | Gente que Cria, Movimenta e Trabalha</title>
 
     <style>
-      /* --- VARIÁVEIS DE COR E FONTE (Identidade Visual Vibrante & Folclórica) --- */
       :root {
-        /* Cores inspiradas no Behance (Folclore Sergipano): Alto Contraste e Vibração */
-        --text-dark: #1F1109; /* Marrom quase preto (Café Torrado) */
-        --text-light: #543A2F; /* Marrom Terra */
-        --bg-color: #FAF6F0; /* Off-white Papel Antigo */
+        --text-dark: #1F1109; 
+        --text-light: #543A2F; 
+        --bg-color: #FAF6F0; 
         --white: #FFFFFF;
-        
-        /* Cores de Destaque */
-        --accent-red: #D9381E; /* Vermelho Sangue/Festa (Parafusos/Reisado) */
-        --accent-green: #006B3C; /* Verde Bandeira/Lagarto (Natureza/Esperança) */
-        --accent-yellow: #FFB300; /* Amarelo Ouro (Sol do Nordeste/Riqueza Cultural) */
-        
+        --accent-red: #D9381E; 
+        --accent-green: #006B3C; 
+        --accent-yellow: #FFB300; 
         --max-width: 1200px;
         --header-font: "Playfair Display", serif;
         --body-font: "Poppins", sans-serif;
@@ -48,11 +41,8 @@
         background-image: radial-gradient(#D9381E 0.5px, transparent 0.5px), radial-gradient(#D9381E 0.5px, var(--bg-color) 0.5px);
         background-size: 20px 20px;
         background-position: 0 0, 10px 10px;
-        background-color: var(--bg-color); /* Fallback */
-        /* Textura sutil de pontilhismo no fundo para remeter a impressão */
       }
 
-      /* --- ELEMENTOS DECORATIVOS (Estilo Behance) --- */
       .decorative-circle {
         position: absolute;
         border-radius: 50%;
@@ -60,12 +50,11 @@
         opacity: 0.1;
       }
 
-      /* --- ESTILOS GERAIS DE SEÇÃO --- */
       .section__container {
         max-width: var(--max-width);
         margin: auto;
         padding: 5rem 1rem;
-        position: relative; /* Para posicionar elementos decorativos */
+        position: relative;
       }
 
       .section__header {
@@ -73,17 +62,16 @@
         width: fit-content;
         margin-inline: auto;
         padding-bottom: 0.5rem;
-        font-size: 3rem; /* Títulos maiores e mais impactantes */
+        font-size: 3rem;
         font-weight: 900;
         font-family: var(--header-font);
         color: var(--text-dark);
         text-align: center;
         margin-bottom: 1.5rem;
-        text-transform: uppercase; /* Caixa alta para impacto visual */
+        text-transform: uppercase;
         letter-spacing: -1px;
       }
 
-      /* Detalhe decorativo "Riscado" abaixo dos títulos */
       .section__header::before {
         position: absolute;
         content: "";
@@ -93,8 +81,7 @@
         height: 6px;
         width: 80px;
         background-color: var(--accent-yellow);
-        border-radius: 0;
-        box-shadow: 4px 4px 0px var(--accent-green); /* Sombra sólida colorida */
+        box-shadow: 4px 4px 0px var(--accent-green);
       }
 
       .btn {
@@ -102,7 +89,7 @@
         outline: none;
         border: 2px solid var(--text-dark);
         color: var(--text-dark);
-        background-color: var(--accent-yellow); /* Fundo amarelo vibrante */
+        background-color: var(--accent-yellow);
         transition: 0.3s;
         cursor: pointer;
         font-weight: 700;
@@ -110,15 +97,12 @@
         font-family: var(--body-font);
         text-transform: uppercase;
         font-size: 0.95rem;
-        box-shadow: 4px 4px 0px var(--text-dark); /* Sombra sólida retro */
+        box-shadow: 4px 4px 0px var(--text-dark);
         position: relative;
-        top: 0;
-        left: 0;
-        text-decoration: none; /* Garante que links em forma de botão não tenham sublinhado */
-        display: inline-block; /* Para comportar padding e margin corretamente */
+        text-decoration: none;
+        display: inline-block;
       }
 
-      /* Efeito de clique no botão */
       .btn:hover {
         top: 2px;
         left: 2px;
@@ -204,7 +188,6 @@
         position: relative;
       }
 
-      /* Hover underline animado */
       .nav__links a::after {
         content: '';
         position: absolute;
@@ -220,7 +203,7 @@
         width: 100%;
       }
 
-      /* --- HEADER / HERO SECTION --- */
+      /* --- HERO SECTION --- */
       .header__container {
         display: grid;
         gap: 3rem;
@@ -228,7 +211,7 @@
         min-height: 95vh;
         padding-top: 8rem;
         position: relative;
-        background-color: var(--bg-color); /* Remove textura do fundo no hero para legibilidade */
+        background-color: var(--bg-color);
         border-bottom: 2px solid var(--text-dark);
       }
 
@@ -247,7 +230,7 @@
         text-transform: uppercase;
         letter-spacing: 2px;
         margin-bottom: 1.5rem;
-        transform: rotate(-2deg); /* Leve inclinação para estilo colagem */
+        transform: rotate(-2deg);
         box-shadow: 4px 4px 0px var(--text-dark);
       }
 
@@ -283,7 +266,6 @@
         max-width: 90%;
         margin: auto;
         height: auto;
-        /* Estilo 3D Flutuante */
         filter: drop-shadow(20px 20px 0px rgba(0,0,0,0.15));
         transition: transform 0.5s ease;
         animation: float 6s ease-in-out infinite;
@@ -336,9 +318,9 @@
         font-size: 1.05rem;
       }
 
-      /* --- PORTFOLIO SECTION (PERSONAGENS) --- */
+      /* --- PORTFOLIO SECTION --- */
       .portfolio__container {
-        background-color: var(--bg-color); /* Volta a textura de fundo */
+        background-color: var(--bg-color);
       }
 
       .portfolio__grid {
@@ -352,13 +334,13 @@
         border: 2px solid var(--text-dark);
         background-color: var(--white);
         padding: 10px;
-        box-shadow: 8px 8px 0px var(--accent-green); /* Sombra sólida verde */
+        box-shadow: 8px 8px 0px var(--accent-green);
         transition: 0.3s;
       }
 
       .portfolio__card:hover {
         transform: translate(-4px, -4px);
-        box-shadow: 12px 12px 0px var(--accent-red); /* Muda para vermelho no hover */
+        box-shadow: 12px 12px 0px var(--accent-red);
       }
 
       .portfolio__grid img {
@@ -369,7 +351,7 @@
         filter: sepia(0.3) contrast(1.2);
       }
 
-      /* --- BLOG SECTION (DIÁRIO) --- */
+      /* --- BLOG SECTION --- */
       .blog {
         background-color: var(--white);
         border-top: 2px solid var(--text-dark);
@@ -388,10 +370,12 @@
         border: 2px solid var(--text-dark);
         transition: 0.3s;
         position: relative;
+        cursor: pointer; /* Indica que é clicável */
       }
 
       .blog__card:hover {
         background-color: var(--accent-yellow);
+        transform: translateY(-5px);
       }
 
       .blog__card h5 {
@@ -419,7 +403,124 @@
         font-size: 0.95rem;
       }
 
-      /* --- FORMS SECTION (GOOGLE FORMS CTA) --- */
+      .click-hint {
+        margin-top: 1rem;
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: var(--accent-red);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      /* --- MODAL STYLES --- */
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(31, 17, 9, 0.9); /* Fundo escuro */
+        backdrop-filter: blur(5px);
+      }
+
+      .modal-content {
+        background-color: var(--bg-color);
+        margin: 5% auto;
+        padding: 0;
+        border: 4px solid var(--text-dark);
+        width: 90%;
+        max-width: 800px;
+        position: relative;
+        box-shadow: 10px 10px 0px var(--accent-yellow);
+        animation: modalSlide 0.4s ease;
+      }
+
+      @keyframes modalSlide {
+        from {transform: translateY(-50px); opacity: 0;}
+        to {transform: translateY(0); opacity: 1;}
+      }
+
+      .modal-header {
+        background-color: var(--text-dark);
+        color: var(--white);
+        padding: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .modal-header h3 {
+        font-family: var(--header-font);
+        font-size: 1.8rem;
+        color: var(--accent-yellow);
+      }
+
+      .close-btn {
+        color: var(--white);
+        font-size: 2rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .close-btn:hover {
+        color: var(--accent-red);
+      }
+
+      .modal-body {
+        padding: 2rem;
+      }
+
+      .modal-body p {
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+        font-size: 1.05rem;
+      }
+
+      /* Gallery inside Modal */
+      .modal-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .modal-gallery img {
+        border: 2px solid var(--text-dark);
+        box-shadow: 4px 4px 0px var(--accent-green);
+        height: 200px;
+        object-fit: cover;
+      }
+
+      /* Story Layout inside Modal */
+      .story-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .story-img {
+        max-width: 100%;
+        border: 2px solid var(--text-dark);
+        box-shadow: 6px 6px 0px var(--accent-red);
+      }
+
+      @media (min-width: 768px) {
+        .story-layout {
+          flex-direction: row;
+          align-items: flex-start;
+        }
+        .story-img {
+          width: 40%;
+        }
+      }
+
+      /* --- FORMS SECTION --- */
       .forms-cta {
         background-color: var(--accent-green);
         color: var(--white);
@@ -517,6 +618,7 @@
         max-width: var(--max-width);
         margin: auto;
         padding: 0 1rem 3rem 1rem;
+        text-align: center; /* Centraliza todo o texto do container */
       }
 
       .footer__col h4 {
@@ -533,30 +635,7 @@
         margin-bottom: 0.5rem;
       }
 
-      .footer__socials {
-        display: flex;
-        gap: 1rem;
-      }
-
-      .footer__socials a {
-        font-size: 1.5rem;
-        color: var(--white);
-        transition: 0.3s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 45px;
-        height: 45px;
-        background-color: var(--accent-red);
-        border: 2px solid var(--white);
-        box-shadow: 3px 3px 0px var(--accent-yellow);
-      }
-
-      .footer__socials a:hover {
-        transform: translate(-2px, -2px);
-        box-shadow: 5px 5px 0px var(--accent-yellow);
-        background-color: var(--accent-green);
-      }
+      /* Redes Sociais Removido */
 
       .footer__bar {
         border-top: 2px solid #333;
@@ -647,8 +726,9 @@
           grid-template-columns: 1fr 1fr;
         }
 
+        /* Footer ajustado para 2 colunas */
         .footer__container {
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(2, 1fr);
         }
       }
     </style>
@@ -685,7 +765,6 @@
           </div>
         </div>
         <div class="header__image">
-          <!-- Imagem 3D de um Parafuso (Símbolo de Lagarto) com perspectiva -->
           <img src="./parafuso.jpg" alt="Parafuso de Lagarto 3D" style="transform: perspective(1000px) rotateY(-15deg) rotateX(5deg); filter: drop-shadow(15px 15px 5px rgba(0,0,0,0.3));" />
         </div>
       </div>
@@ -694,7 +773,6 @@
     <section class="about" id="about">
       <div class="section__container about__container">
         <div class="about__image">
-          <!-- Imagem com Borda Grossa e Cores Vivas -->
           <img src="https://placehold.co/500x500/2E7D32/FFFFFF?text=Artesanato+Barro" alt="Cultura Local" />
         </div>
         <div class="about__content">
@@ -722,7 +800,6 @@
           Conheça os rostos que constroem a identidade de Lagarto. Cada foto conta uma história de luta, fé e criatividade.
         </p>
         <div class="portfolio__grid">
-          <!-- Cards estilo Moldura -->
           <div class="portfolio__card">
             <img src="https://placehold.co/400x500/D9381E/FFFFFF?text=Artesão" alt="Personagem 1" />
           </div>
@@ -741,6 +818,17 @@
           <div class="portfolio__card">
             <img src="https://placehold.co/400x500/FFB300/1F1109?text=Rendeira" alt="Personagem 6" />
           </div>
+          
+          <div class="portfolio__card">
+            <img src="https://placehold.co/400x500/D9381E/FFFFFF?text=Pescador" alt="Personagem 7" />
+          </div>
+          <div class="portfolio__card">
+            <img src="https://placehold.co/400x500/006B3C/FFFFFF?text=Costureira" alt="Personagem 8" />
+          </div>
+          <div class="portfolio__card">
+            <img src="https://placehold.co/400x500/FFB300/1F1109?text=Músico" alt="Personagem 9" />
+          </div>
+
         </div>
       </div>
     </section>
@@ -749,39 +837,121 @@
       <div class="section__container blog__container">
         <h2 class="section__header">Diário de Campo</h2>
         <div class="blog__grid">
-          <div class="blog__card">
+          
+          <div class="blog__card" onclick="openModal('modal1')">
             <h5>05 DEZ 2025</h5>
             <h4>O Início da Jornada</h4>
             <p>
-              Definição do escopo e escolha dos personagens que representam a alma lagartense. A equipe se reuniu para traçar as rotas de visita.
+              Definição do escopo e escolha dos personagens que representam a alma lagartense. Clique para ver o Termo de Abertura.
             </p>
+            <div class="click-hint"><i class="ri-eye-line"></i> Ver Detalhes</div>
           </div>
-          <div class="blog__card">
+
+          <div class="blog__card" onclick="openModal('modal2')">
             <h5>12 DEZ 2025</h5>
-            <h4>Visita ao Mercado</h4>
+            <h4>Expedição de Campo</h4>
             <p>
-              Um dia de imersão nos cheiros e cores da feira de Lagarto, conversando com feirantes históricos que viram a cidade crescer.
+              Um dia de imersão nos cheiros e cores da feira de Lagarto. Veja as fotos da nossa equipe em ação coletando dados.
             </p>
+            <div class="click-hint"><i class="ri-image-2-line"></i> Ver Galeria</div>
           </div>
-          <div class="blog__card">
+
+          <div class="blog__card" onclick="openModal('modal3')">
             <h5>09 JAN 2026</h5>
-            <h4>Mãos que Criam</h4>
+            <h4>Planejamento & Dev</h4>
             <p>
-              Entrevista exclusiva com artesãos locais, descobrindo como o barro se transforma em arte nas mãos de quem tem história.
+              Bastidores da criação deste portal. Nossa equipe de desenvolvimento reunida para transformar ideias em código.
             </p>
+            <div class="click-hint"><i class="ri-image-2-line"></i> Ver Bastidores</div>
           </div>
-          <div class="blog__card">
+
+          <div class="blog__card" onclick="openModal('modal4')">
             <h5>16 JAN 2026</h5>
-            <h4>A Entrega Final</h4>
+            <h4>Histórias da Feira</h4>
             <p>
-              A consolidação de todo o material coletado em um acervo digital para a posteridade, apresentado à comunidade acadêmica.
+              "Quem compra meu coentro leva alegria". Conheça a história de Dona Maria, feirante há mais de 40 anos.
             </p>
+            <div class="click-hint"><i class="ri-article-line"></i> Ler História</div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- NOVA SEÇÃO: PARTICIPE (Google Forms) -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Termo de Abertura do Projeto</h3>
+          <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+          <p>O Termo de Abertura do Projeto (TAP) oficializa o início do "Veja Lagarto", definindo objetivos, partes interessadas e o cronograma inicial.</p>
+          <br>
+          <a href="https://drive.google.com/file/d/1pK5QeysmF09TRuA4z6c1v2cc8tycDfVW/view?usp=sharing" target="_blank" class="btn">
+             <i class="ri-google-drive-line"></i> ACESSAR DOCUMENTO (DRIVE)
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Equipe em Campo</h3>
+          <span class="close-btn" onclick="closeModal('modal2')">&times;</span>
+        </div>
+        <div class="modal-body">
+          <p>Registros do nosso primeiro dia de visita técnica ao Mercado Municipal e arredores.</p>
+          <div class="modal-gallery">
+            <img src="https://placehold.co/400x300/D9381E/FFFFFF?text=Entrevista" alt="Equipe entrevistando">
+            <img src="https://placehold.co/400x300/006B3C/FFFFFF?text=Feira+Livre" alt="Foto da Feira">
+            <img src="https://placehold.co/400x300/FFB300/1F1109?text=Equipe+Reunida" alt="Equipe na Praça">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal3" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Reunião de Desenvolvimento</h3>
+          <span class="close-btn" onclick="closeModal('modal3')">&times;</span>
+        </div>
+        <div class="modal-body">
+          <p>Brainstorming, café e muita codificação. O processo de criação do design e identidade visual.</p>
+          <div class="modal-gallery">
+            <img src="https://placehold.co/400x300/333/FFF?text=Coding" alt="Programando">
+            <img src="https://placehold.co/400x300/555/FFF?text=Reunião" alt="Reunião">
+            <img src="https://placehold.co/400x300/777/FFF?text=Wireframe" alt="Desenhando Site">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal4" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>A Sabedoria de Dona Maria</h3>
+          <span class="close-btn" onclick="closeModal('modal4')">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="story-layout">
+            <div style="flex: 1;">
+              <p><em>"Eu vi essa cidade mudar, meu filho. Quando cheguei aqui, era tudo barro."</em></p>
+              <p>
+                Dona Maria das Verduras, 68 anos, acorda todos os dias às 3 da manhã. Com um sorriso no rosto e mãos calejadas pelo trabalho, ela organiza sua banca com um capricho invejável.
+              </p>
+              <p>
+                Para ela, a feira não é apenas um local de comércio, é onde a vida acontece. "Aqui a gente cura tristeza com conversa e fome com comida boa", diz ela, oferecendo um ramo de coentro fresco para quem passa.
+              </p>
+            </div>
+            <img class="story-img" src="https://placehold.co/400x500/006B3C/FFFFFF?text=Dona+Maria" alt="Foto de Dona Maria">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <section class="forms-cta" id="participate">
       <div class="decorative-circle" style="top: -50px; left: -50px; width: 150px; height: 150px; background: rgba(255,255,255,0.2);"></div>
       <div class="section__container">
@@ -789,14 +959,12 @@
         <p>
           Ajude-nos a mapear os personagens de Lagarto! <br></br> Se você conhece um artesão, cozinheiro ou trabalhador com uma história incrível, indique para nossa equipe.
         </p>
-        <!-- Botão com target="_blank" para abrir em nova aba -->
         <a href="https://forms.gle/CXW2mCmoFaxEn6zHA" target="_blank" class="btn btn-inverse">
             INDICAR PERSONAGEM <i class="ri-arrow-right-up-line"></i>
         </a>
       </div>
     </section>
 
-    <!-- NOVA SEÇÃO: LGPD (Proteção de Dados) -->
     <section class="lgpd-section">
       <div class="lgpd-content">
         <h3><i class="ri-shield-check-line"></i> Proteção de Dados e Privacidade</h3>
@@ -833,7 +1001,6 @@
       </div>
     </footer>
 
-    <!-- Script de Animação ao Rolar (ScrollReveal) -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <script>
       // Lógica do Menu Mobile
@@ -850,7 +1017,6 @@
         );
       });
 
-      // Fechar menu mobile ao clicar em um link
       navLinks.querySelectorAll("a").forEach(link => {
         link.addEventListener("click", () => {
           navLinks.classList.remove("open");
@@ -858,7 +1024,26 @@
         });
       });
 
-      // Configuração das Animações
+      // --- LÓGICA DOS MODAIS ---
+      function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+        document.body.style.overflow = "hidden"; // Impede scroll no fundo
+      }
+
+      function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+        document.body.style.overflow = "auto"; // Libera scroll
+      }
+
+      // Fechar modal ao clicar fora do conteúdo
+      window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+          event.target.style.display = "none";
+          document.body.style.overflow = "auto";
+        }
+      }
+
+      // Configuração das Animações (ScrollReveal)
       const scrollRevealOption = {
         distance: "50px",
         origin: "bottom",
