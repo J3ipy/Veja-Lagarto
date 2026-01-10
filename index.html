@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-    <title>Veja Lagarto | Gente que Cria, Movimenta e Trabalha</title>
+    <title>Vozes e Retratos da Feira de Lagarto</title>
 
     <style>
       :root {
@@ -62,7 +62,7 @@
         width: fit-content;
         margin-inline: auto;
         padding-bottom: 0.5rem;
-        font-size: 3rem;
+        font-size: 2.5rem;
         font-weight: 900;
         font-family: var(--header-font);
         color: var(--text-dark);
@@ -153,7 +153,7 @@
 
       .nav__logo a {
         font-family: var(--header-font);
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 900;
         color: var(--text-dark);
         letter-spacing: -1px;
@@ -164,7 +164,7 @@
         color: var(--accent-green);
         text-decoration: underline;
         text-decoration-color: var(--accent-red);
-        text-decoration-thickness: 4px;
+        text-decoration-thickness: 3px;
       }
 
       .nav__menu__btn {
@@ -182,7 +182,7 @@
       .nav__links a {
         font-weight: 700;
         color: var(--text-dark);
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         text-transform: uppercase;
         letter-spacing: 0.5px;
         position: relative;
@@ -208,7 +208,7 @@
         display: grid;
         gap: 3rem;
         align-items: center;
-        min-height: 95vh;
+        min-height: 90vh;
         padding-top: 8rem;
         position: relative;
         background-color: var(--bg-color);
@@ -221,7 +221,7 @@
       }
 
       .header__content h2 {
-        font-size: 1.2rem;
+        font-size: 1rem;
         font-weight: 800;
         color: var(--white);
         background-color: var(--accent-green);
@@ -235,11 +235,11 @@
       }
 
       .header__content h1 {
-        font-size: 4rem;
+        font-size: 3.5rem;
         font-weight: 900;
         font-family: var(--header-font);
         color: var(--text-dark);
-        line-height: 1;
+        line-height: 1.1;
         margin-bottom: 1.5rem;
       }
       
@@ -266,15 +266,9 @@
         max-width: 90%;
         margin: auto;
         height: auto;
-        filter: drop-shadow(20px 20px 0px rgba(0,0,0,0.15));
-        transition: transform 0.5s ease;
-        animation: float 6s ease-in-out infinite;
-      }
-
-      @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
-        100% { transform: translateY(0px); }
+        border: 4px solid var(--white);
+        box-shadow: 10px 10px 0px var(--text-dark);
+        transform: rotate(2deg);
       }
 
       /* --- ABOUT SECTION --- */
@@ -318,18 +312,54 @@
         font-size: 1.05rem;
       }
 
-      /* --- PORTFOLIO SECTION --- */
-      .portfolio__container {
+      /* --- TEAM SECTION --- */
+      .team-section {
+        background-color: #f4f4f4;
+        border-top: 2px solid var(--text-dark);
+        border-bottom: 2px solid var(--text-dark);
+      }
+
+      .team__grid {
+        display: grid;
+        gap: 2rem;
+      }
+
+      .team-info {
+        background: var(--white);
+        padding: 2rem;
+        border: 2px solid var(--text-dark);
+        box-shadow: 6px 6px 0px var(--accent-green);
+      }
+
+      .team-list li {
+        margin-bottom: 0.8rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      .team-list li i {
+        color: var(--accent-red);
+      }
+
+      .team-photo img {
+        border: 2px solid var(--text-dark);
+        box-shadow: 6px 6px 0px var(--accent-yellow);
+      }
+
+      /* --- GALLERY SECTION (EIXOS) --- */
+      .gallery__container {
         background-color: var(--bg-color);
       }
 
-      .portfolio__grid {
+      .gallery__grid {
         margin-top: 3rem;
         display: grid;
         gap: 2rem;
       }
 
-      .portfolio__card {
+      .gallery__card {
         position: relative;
         border: 2px solid var(--text-dark);
         background-color: var(--white);
@@ -338,186 +368,55 @@
         transition: 0.3s;
       }
 
-      .portfolio__card:hover {
+      .gallery__card:hover {
         transform: translate(-4px, -4px);
         box-shadow: 12px 12px 0px var(--accent-red);
       }
 
-      .portfolio__grid img {
-        height: 350px;
+      .gallery__card img {
+        height: 250px;
         width: 100%;
         object-fit: cover;
         border: 1px solid var(--text-dark);
-        filter: sepia(0.3) contrast(1.2);
+        margin-bottom: 1rem;
       }
 
-      /* --- BLOG SECTION --- */
-      .blog {
+      .gallery__card h4 {
+        text-align: center;
+        font-family: var(--header-font);
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+      }
+
+      .gallery__card p {
+          text-align: center;
+          font-size: 0.9rem;
+          color: var(--text-light);
+      }
+
+      /* --- LOCATION SECTION --- */
+      .location {
         background-color: var(--white);
         border-top: 2px solid var(--text-dark);
-        border-bottom: 2px solid var(--text-dark);
       }
 
-      .blog__grid {
-        margin-top: 3rem;
-        display: grid;
-        gap: 2rem;
-      }
-
-      .blog__card {
-        background: var(--bg-color);
-        padding: 2rem;
-        border: 2px solid var(--text-dark);
-        transition: 0.3s;
-        position: relative;
-        cursor: pointer; /* Indica que é clicável */
-      }
-
-      .blog__card:hover {
-        background-color: var(--accent-yellow);
-        transform: translateY(-5px);
-      }
-
-      .blog__card h5 {
-        margin-bottom: 0.8rem;
-        font-size: 0.9rem;
-        font-weight: 800;
-        color: var(--white);
-        background-color: var(--text-dark);
-        display: inline-block;
-        padding: 2px 8px;
-        text-transform: uppercase;
-      }
-
-      .blog__card h4 {
-        margin-bottom: 1rem;
-        font-size: 1.5rem;
-        color: var(--text-dark);
-        font-family: var(--header-font);
-        font-weight: 800;
-      }
-
-      .blog__card p {
-        color: var(--text-light);
-        line-height: 1.6;
-        font-size: 0.95rem;
-      }
-
-      .click-hint {
-        margin-top: 1rem;
-        font-size: 0.8rem;
-        font-weight: bold;
-        text-transform: uppercase;
-        color: var(--accent-red);
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      /* --- MODAL STYLES --- */
-      .modal {
-        display: none; /* Hidden by default */
-        position: fixed;
-        z-index: 2000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(31, 17, 9, 0.9); /* Fundo escuro */
-        backdrop-filter: blur(5px);
-      }
-
-      .modal-content {
-        background-color: var(--bg-color);
-        margin: 5% auto;
-        padding: 0;
-        border: 4px solid var(--text-dark);
-        width: 90%;
-        max-width: 800px;
-        position: relative;
-        box-shadow: 10px 10px 0px var(--accent-yellow);
-        animation: modalSlide 0.4s ease;
-      }
-
-      @keyframes modalSlide {
-        from {transform: translateY(-50px); opacity: 0;}
-        to {transform: translateY(0); opacity: 1;}
-      }
-
-      .modal-header {
-        background-color: var(--text-dark);
-        color: var(--white);
-        padding: 1.5rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .modal-header h3 {
-        font-family: var(--header-font);
-        font-size: 1.8rem;
-        color: var(--accent-yellow);
-      }
-
-      .close-btn {
-        color: var(--white);
-        font-size: 2rem;
-        font-weight: bold;
-        cursor: pointer;
-        transition: 0.3s;
-      }
-
-      .close-btn:hover {
-        color: var(--accent-red);
-      }
-
-      .modal-body {
-        padding: 2rem;
-      }
-
-      .modal-body p {
-        margin-bottom: 1.5rem;
-        line-height: 1.8;
-        font-size: 1.05rem;
-      }
-
-      /* Gallery inside Modal */
-      .modal-gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-        margin-top: 1.5rem;
-      }
-
-      .modal-gallery img {
-        border: 2px solid var(--text-dark);
-        box-shadow: 4px 4px 0px var(--accent-green);
-        height: 200px;
-        object-fit: cover;
-      }
-
-      /* Story Layout inside Modal */
-      .story-layout {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
+      .location__content {
+          text-align: center;
       }
       
-      .story-img {
-        max-width: 100%;
-        border: 2px solid var(--text-dark);
-        box-shadow: 6px 6px 0px var(--accent-red);
+      .map-container {
+          width: 100%;
+          height: 400px;
+          margin-top: 2rem;
+          border: 2px solid var(--text-dark);
+          box-shadow: 8px 8px 0px var(--accent-green);
       }
 
-      @media (min-width: 768px) {
-        .story-layout {
-          flex-direction: row;
-          align-items: flex-start;
-        }
-        .story-img {
-          width: 40%;
-        }
+      .map-container iframe {
+          width: 100%;
+          height: 100%;
+          border: 0;
       }
 
       /* --- FORMS SECTION --- */
@@ -557,7 +456,7 @@
         color: var(--text-dark);
         border-color: var(--text-dark);
       }
-
+      
       /* --- LGPD SECTION --- */
       .lgpd-section {
         background-color: #F0F0F0;
@@ -618,7 +517,7 @@
         max-width: var(--max-width);
         margin: auto;
         padding: 0 1rem 3rem 1rem;
-        text-align: center; /* Centraliza todo o texto do container */
+        text-align: center;
       }
 
       .footer__col h4 {
@@ -634,8 +533,6 @@
         line-height: 1.6;
         margin-bottom: 0.5rem;
       }
-
-      /* Redes Sociais Removido */
 
       .footer__bar {
         border-top: 2px solid #333;
@@ -682,7 +579,7 @@
         }
 
         .header__content h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
         }
         
         .header__image img {
@@ -714,19 +611,15 @@
             text-align: left;
         }
 
-        .portfolio__grid {
+        .team__grid {
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+        }
+
+        .gallery__grid {
           grid-template-columns: repeat(3, 1fr);
         }
 
-        .blog__grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .contact__container {
-          grid-template-columns: 1fr 1fr;
-        }
-
-        /* Footer ajustado para 2 colunas */
         .footer__container {
           grid-template-columns: repeat(2, 1fr);
         }
@@ -737,7 +630,7 @@
     <nav>
       <div class="nav__header">
         <div class="nav__logo">
-          <a href="#">Veja<span>Lagarto</span>.</a>
+          <a href="#">Feira<span>Lagarto</span>.</a>
         </div>
         <div class="nav__menu__btn" id="menu-btn">
           <i class="ri-menu-3-line"></i>
@@ -745,9 +638,9 @@
         <ul class="nav__links" id="nav-links">
             <li><a href="#home">Início</a></li>
             <li><a href="#about">O Projeto</a></li>
-            <li><a href="#portfolio">Personagens</a></li>
-            <li><a href="#blog">Diário</a></li>
-            <li><a href="#participate">Participe</a></li>
+            <li><a href="#team">Equipe</a></li>
+            <li><a href="#gallery">Eixos</a></li>
+            <li><a href="#location">Localização</a></li>
         </ul>
       </div>
     </nav>
@@ -755,17 +648,19 @@
     <header id="home">
       <div class="section__container header__container">
         <div class="header__content">
-          <h2>PROJETO DOCUMENTAL</h2>
-          <h1>Gente que Cria,<br /><span>Movimenta</span> e<br />Trabalha.</h1>
+          <h2>PROJETO ACADÊMICO</h2>
+          <h1>Vozes e Retratos da<br /><span>Feira de Lagarto</span></h1>
           <p>
-            Um resgate visual e narrativo do cotidiano, artesanato e gastronomia da cidade de Lagarto/SE. Descubra as histórias por trás de quem constrói a nossa identidade cultural com cores, força e fé.
+            Um resgate visual e narrativo do maior centro comercial a céu aberto da nossa região. 
+            Este site tem como objetivo apresentar os eixos, as histórias e a identidade cultural 
+            da tradicional Feira de Lagarto/SE.
           </p>
           <div class="header__btn">
-            <a href="#about" class="btn">CONHEÇA O PROJETO</a>
+            <a href="#about" class="btn">CONHEÇA A PROPOSTA</a>
           </div>
         </div>
         <div class="header__image">
-          <img src="./parafuso.jpg" alt="Parafuso de Lagarto 3D" style="transform: perspective(1000px) rotateY(-15deg) rotateX(5deg); filter: drop-shadow(15px 15px 5px rgba(0,0,0,0.3));" />
+          <img src="https://placehold.co/600x400/D9381E/FFFFFF?text=Feira+de+Lagarto" alt="Ilustração da Feira de Lagarto" />
         </div>
       </div>
     </header>
@@ -773,194 +668,117 @@
     <section class="about" id="about">
       <div class="section__container about__container">
         <div class="about__image">
-          <img src="https://placehold.co/500x500/2E7D32/FFFFFF?text=Artesanato+Barro" alt="Cultura Local" />
+          <img src="https://placehold.co/500x500/006B3C/FFFFFF?text=Cotidiano+da+Feira" alt="Movimento da Feira" />
         </div>
         <div class="about__content">
           <h2 class="section__header">Sobre o Projeto</h2>
           <p>
-            O <strong>Veja Lagarto</strong> nasceu da necessidade de valorizar a memória viva de nossa cidade.
-            Mais do que construções, Lagarto é feita de gente. Gente que acorda cedo para movimentar a economia,
-            que usa as mãos para criar arte no barro e na linha, e que mantém viva a gastronomia local.
+            O projeto <strong>Vozes e Retratos da Feira de Lagarto</strong> foi desenvolvido como requisito da disciplina de 
+            <strong>Gerência de Projetos</strong>, do curso de <strong>Bacharelado em Sistemas de Informação</strong> 
+            do <strong>Instituto Federal de Sergipe (IFS) - Campus Lagarto</strong>.
           </p>
           <p>
-            Este site é um portfólio documental desenvolvido por estudantes, com o objetivo de eternizar essas histórias. 
-            Buscamos a essência do nosso folclore, a força do nosso povo e a beleza do nosso cotidiano em cada traço e cada cor.
+            Nosso objetivo enquanto graduandos é aplicar conhecimentos técnicos para valorizar a cultura local, 
+            criando um acervo digital que organiza e apresenta os diferentes "eixos" que compõem a feira: 
+            desde o agricultor que traz o alimento, até o artesão que mantém viva a tradição.
           </p>
           <div class="about__btn">
-            <a href="#portfolio" class="btn">VER GALERIA</a>
+            <a href="#team" class="btn">CONHEÇA A EQUIPE</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="portfolio__container" id="portfolio">
-      <div class="section__container">
-        <h2 class="section__header">Nossa Gente</h2>
-        <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem auto; color: var(--text-light); font-weight: 500;">
-          Conheça os rostos que constroem a identidade de Lagarto. Cada foto conta uma história de luta, fé e criatividade.
-        </p>
-        <div class="portfolio__grid">
-          <div class="portfolio__card">
-            <img src="https://placehold.co/400x500/D9381E/FFFFFF?text=Artesão" alt="Personagem 1" />
-          </div>
-          <div class="portfolio__card">
-            <img src="https://placehold.co/400x500/006B3C/FFFFFF?text=Feirante" alt="Personagem 2" />
-          </div>
-          <div class="portfolio__card">
-            <img src="https://placehold.co/400x500/FFB300/1F1109?text=Bolos" alt="Personagem 3" />
-          </div>
-          <div class="portfolio__card">
-            <img src="https://placehold.co/400x500/D9381E/FFFFFF?text=Parafusos" alt="Personagem 4" />
-          </div>
-          <div class="portfolio__card">
-            <img src="https://placehold.co/400x500/006B3C/FFFFFF?text=Agricultor" alt="Personagem 5" />
-          </div>
-          <div class="portfolio__card">
-            <img src="https://placehold.co/400x500/FFB300/1F1109?text=Rendeira" alt="Personagem 6" />
-          </div>
-          
-          <div class="portfolio__card">
-            <img src="https://placehold.co/400x500/D9381E/FFFFFF?text=Pescador" alt="Personagem 7" />
-          </div>
-          <div class="portfolio__card">
-            <img src="https://placehold.co/400x500/006B3C/FFFFFF?text=Costureira" alt="Personagem 8" />
-          </div>
-          <div class="portfolio__card">
-            <img src="https://placehold.co/400x500/FFB300/1F1109?text=Músico" alt="Personagem 9" />
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="blog" id="blog">
-      <div class="section__container blog__container">
-        <h2 class="section__header">Diário de Campo</h2>
-        <div class="blog__grid">
-          
-          <div class="blog__card" onclick="openModal('modal1')">
-            <h5>05 DEZ 2025</h5>
-            <h4>O Início da Jornada</h4>
-            <p>
-              Definição do escopo e escolha dos personagens que representam a alma lagartense. Clique para ver o Termo de Abertura.
-            </p>
-            <div class="click-hint"><i class="ri-eye-line"></i> Ver Detalhes</div>
-          </div>
-
-          <div class="blog__card" onclick="openModal('modal2')">
-            <h5>12 DEZ 2025</h5>
-            <h4>Expedição de Campo</h4>
-            <p>
-              Um dia de imersão nos cheiros e cores da feira de Lagarto. Veja as fotos da nossa equipe em ação coletando dados.
-            </p>
-            <div class="click-hint"><i class="ri-image-2-line"></i> Ver Galeria</div>
-          </div>
-
-          <div class="blog__card" onclick="openModal('modal3')">
-            <h5>09 JAN 2026</h5>
-            <h4>Planejamento & Dev</h4>
-            <p>
-              Bastidores da criação deste portal. Nossa equipe de desenvolvimento reunida para transformar ideias em código.
-            </p>
-            <div class="click-hint"><i class="ri-image-2-line"></i> Ver Bastidores</div>
-          </div>
-
-          <div class="blog__card" onclick="openModal('modal4')">
-            <h5>16 JAN 2026</h5>
-            <h4>Histórias da Feira</h4>
-            <p>
-              "Quem compra meu coentro leva alegria". Conheça a história de Dona Maria, feirante há mais de 40 anos.
-            </p>
-            <div class="click-hint"><i class="ri-article-line"></i> Ler História</div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <div id="modal1" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3>Termo de Abertura do Projeto</h3>
-          <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
-        </div>
-        <div class="modal-body" style="text-align: center;">
-          <p>O Termo de Abertura do Projeto (TAP) oficializa o início do "Veja Lagarto", definindo objetivos, partes interessadas e o cronograma inicial.</p>
-          <br>
-          <a href="https://drive.google.com/file/d/1pK5QeysmF09TRuA4z6c1v2cc8tycDfVW/view?usp=sharing" target="_blank" class="btn">
-             <i class="ri-google-drive-line"></i> ACESSAR DOCUMENTO (DRIVE)
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div id="modal2" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3>Equipe em Campo</h3>
-          <span class="close-btn" onclick="closeModal('modal2')">&times;</span>
-        </div>
-        <div class="modal-body">
-          <p>Registros do nosso primeiro dia de visita técnica ao Mercado Municipal e arredores.</p>
-          <div class="modal-gallery">
-            <img src="https://placehold.co/400x300/D9381E/FFFFFF?text=Entrevista" alt="Equipe entrevistando">
-            <img src="https://placehold.co/400x300/006B3C/FFFFFF?text=Feira+Livre" alt="Foto da Feira">
-            <img src="https://placehold.co/400x300/FFB300/1F1109?text=Equipe+Reunida" alt="Equipe na Praça">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="modal3" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3>Reunião de Desenvolvimento</h3>
-          <span class="close-btn" onclick="closeModal('modal3')">&times;</span>
-        </div>
-        <div class="modal-body">
-          <p>Brainstorming, café e muita codificação. O processo de criação do design e identidade visual.</p>
-          <div class="modal-gallery">
-            <img src="https://placehold.co/400x300/333/FFF?text=Coding" alt="Programando">
-            <img src="https://placehold.co/400x300/555/FFF?text=Reunião" alt="Reunião">
-            <img src="https://placehold.co/400x300/777/FFF?text=Wireframe" alt="Desenhando Site">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="modal4" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3>A Sabedoria de Dona Maria</h3>
-          <span class="close-btn" onclick="closeModal('modal4')">&times;</span>
-        </div>
-        <div class="modal-body">
-          <div class="story-layout">
-            <div style="flex: 1;">
-              <p><em>"Eu vi essa cidade mudar, meu filho. Quando cheguei aqui, era tudo barro."</em></p>
-              <p>
-                Dona Maria das Verduras, 68 anos, acorda todos os dias às 3 da manhã. Com um sorriso no rosto e mãos calejadas pelo trabalho, ela organiza sua banca com um capricho invejável.
-              </p>
-              <p>
-                Para ela, a feira não é apenas um local de comércio, é onde a vida acontece. "Aqui a gente cura tristeza com conversa e fome com comida boa", diz ela, oferecendo um ramo de coentro fresco para quem passa.
-              </p>
+    <section class="team-section" id="team">
+        <div class="section__container">
+            <h2 class="section__header">Equipe de Desenvolvimento</h2>
+            <div class="team__grid">
+                <div class="team-photo">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzlx_kDZfsEdPB0Dyx-_rolq8znZP-5xHcXNpbsNcj5m2cNJLiRMOfAj-GsX9SpdDcGzVsIqcyinJv7EMf-mpq0KT8K1Ib5yKHo90BPX3XH8i-4lwdS0iNvaBxitvHCZC5uV-3B=s1360-w1360-h1020" alt="IFS Campus Lagarto">
+                    <p style="text-align: center; margin-top: 0.5rem; font-size: 0.9rem; font-style: italic;">Instituto Federal de Sergipe - Campus Lagarto</p>
+                </div>
+                <div class="team-info">
+                    <h3>Discentes Responsáveis</h3>
+                    <p style="margin-bottom: 1rem;">Alunos do curso de Bacharelado em Sistemas de Informação:</p>
+                    <ul class="team-list">
+                        <li><i class="ri-user-line"></i> João Pedro Santana Silva Santos</li>
+                        <li><i class="ri-user-line"></i> Gustavo Anthony Ribeiro Santana</li>
+                        <li><i class="ri-user-line"></i> Ramon dos Santos Oliveira</li>
+                        <li><i class="ri-user-line"></i> Vicente Gabriel Loiola Souza</li>
+                        <li><i class="ri-user-line"></i> Luiz Eduardo Andrade de Oliveira</li>
+                        <li><i class="ri-user-line"></i> João Antônio Santos Alves</li>
+                    </ul>
+                </div>
             </div>
-            <img class="story-img" src="https://placehold.co/400x500/006B3C/FFFFFF?text=Dona+Maria" alt="Foto de Dona Maria">
+        </div>
+    </section>
+
+    <section class="gallery__container" id="gallery">
+      <div class="section__container">
+        <h2 class="section__header">Eixos da Feira</h2>
+        <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem auto; color: var(--text-light); font-weight: 500;">
+          A feira é organizada por setores que chamamos de eixos. Cada um representa uma parte vital da economia e cultura lagartense.
+        </p>
+        <div class="gallery__grid">
+          <div class="gallery__card">
+            <img src="https://placehold.co/400x300/D9381E/FFFFFF?text=Frutas+e+Verduras" alt="Eixo Agricultura" />
+            <h4>Agricultura Familiar</h4>
+            <p>O frescor do campo direto para a mesa. Produtores locais que trazem a riqueza da nossa terra.</p>
+          </div>
+          <div class="gallery__card">
+            <img src="https://placehold.co/400x300/006B3C/FFFFFF?text=Confecções" alt="Eixo Roupas" />
+            <h4>Confecções e Tecidos</h4>
+            <p>O comércio popular de roupas e tecidos que movimenta o setor têxtil da região.</p>
+          </div>
+          <div class="gallery__card">
+            <img src="https://placehold.co/400x300/FFB300/1F1109?text=Artesanato" alt="Eixo Artesanato" />
+            <h4>Artesanato e Utensílios</h4>
+            <p>Do barro à madeira, a arte manual que serve ao cotidiano e decora os lares.</p>
+          </div>
+          <div class="gallery__card">
+            <img src="https://placehold.co/400x300/D9381E/FFFFFF?text=Carnes+e+Peixes" alt="Eixo Açougue" />
+            <h4>Carnes e Pescados</h4>
+            <p>O setor de proteínas, onde a tradição do corte e da pesca se encontram.</p>
+          </div>
+          <div class="gallery__card">
+            <img src="https://placehold.co/400x300/006B3C/FFFFFF?text=Cereais+e+Grãos" alt="Eixo Cereais" />
+            <h4>Cereais e Temperos</h4>
+            <p>Os cheiros e sabores que temperam a culinária sergipana encontrados a granel.</p>
+          </div>
+          <div class="gallery__card">
+            <img src="https://placehold.co/400x300/FFB300/1F1109?text=Gastronomia" alt="Eixo Comidas" />
+            <h4>Gastronomia de Rua</h4>
+            <p>Onde se come o tradicional pastel de feira, o caldo de cana e o bolo de pote.</p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
+    <section class="location" id="location">
+        <div class="section__container location__content">
+            <h2 class="section__header">Localização</h2>
+            <p>A Feira Livre acontece tradicionalmente no centro da cidade, ocupando as principais praças e ruas comerciais.</p>
+            <p><strong>Lagarto - Sergipe</strong></p>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.6385317769584!2d-37.662243684698535!3d-10.923180492219777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7101e4a05555555%3A0x0!2zMTDCsDU1JzIzLjUiUyAzN8KwMzknMzYuMiJX!5e0!3m2!1spt-BR!2sbr!4v1600000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            
+            <div style="margin-top: 1rem;">
+                <a href="https://maps.app.goo.gl/D94o3iLLoGHC6u6t5" target="_blank" class="btn">VER NO MAPA EXTERNO</a>
+            </div>
+        </div>
+    </section>
 
     <section class="forms-cta" id="participate">
       <div class="decorative-circle" style="top: -50px; left: -50px; width: 150px; height: 150px; background: rgba(255,255,255,0.2);"></div>
       <div class="section__container">
-        <h2>Você Conhece Alguém Especial?</h2>
+        <h2>Participe do Mapeamento</h2>
         <p>
-          Ajude-nos a mapear os personagens de Lagarto! <br></br> Se você conhece um artesão, cozinheiro ou trabalhador com uma história incrível, indique para nossa equipe.
+          Ajude-nos a catalogar as histórias da feira! <br></br> Se você é feirante ou conhece alguém que faz parte dessa história, colabore com nosso projeto acadêmico.
         </p>
         <a href="https://forms.gle/CXW2mCmoFaxEn6zHA" target="_blank" class="btn btn-inverse">
-            INDICAR PERSONAGEM <i class="ri-arrow-right-up-line"></i>
+            ACESSAR FORMULÁRIO <i class="ri-arrow-right-up-line"></i>
         </a>
       </div>
     </section>
@@ -969,7 +787,7 @@
       <div class="lgpd-content">
         <h3><i class="ri-shield-check-line"></i> Proteção de Dados e Privacidade</h3>
         <p>
-          O projeto <strong>Veja Lagarto</strong> está comprometido com a transparência e a proteção dos dados pessoais de todos os entrevistados e participantes, em conformidade com a <strong>Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018)</strong>.
+          O projeto <strong>Vozes e Retratos</strong> está comprometido com a transparência e a proteção dos dados pessoais de todos os entrevistados e participantes, em conformidade com a <strong>Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018)</strong>.
         </p>
         <ul>
           <li><strong>Uso de Imagem:</strong> Todas as fotografias expostas neste site possuem Termo de Consentimento de Uso de Imagem assinado pelos participantes.</li>
@@ -985,19 +803,20 @@
     <footer>
       <div class="section__container footer__container">
         <div class="footer__col">
-          <h4>Veja Lagarto</h4>
+          <h4>Vozes e Retratos</h4>
           <p>
-            Valorizando a cultura, o trabalho e a gente da nossa terra. Um projeto acadêmico com alma sergipana.
+            Projeto acadêmico de valorização da Feira de Lagarto. Desenvolvido na disciplina de Gerência de Projetos (IFS).
           </p>
         </div>
         <div class="footer__col">
-          <h4>Localização</h4>
+          <h4>Institucional</h4>
+          <p>Instituto Federal de Sergipe (IFS)</p>
+          <p>Bacharelado em Sistemas de Informação</p>
           <p>Lagarto, Sergipe - Brasil</p>
-          <p>Curso de Sistemas de Informação</p>
         </div>
       </div>
       <div class="footer__bar">
-        Copyright © 2026 Veja Lagarto. Todos os direitos reservados.
+        Copyright © 2026 Vozes e Retratos da Feira de Lagarto. Todos os direitos reservados.
       </div>
     </footer>
 
@@ -1024,26 +843,7 @@
         });
       });
 
-      // --- LÓGICA DOS MODAIS ---
-      function openModal(modalId) {
-        document.getElementById(modalId).style.display = "block";
-        document.body.style.overflow = "hidden"; // Impede scroll no fundo
-      }
-
-      function closeModal(modalId) {
-        document.getElementById(modalId).style.display = "none";
-        document.body.style.overflow = "auto"; // Libera scroll
-      }
-
-      // Fechar modal ao clicar fora do conteúdo
-      window.onclick = function(event) {
-        if (event.target.classList.contains('modal')) {
-          event.target.style.display = "none";
-          document.body.style.overflow = "auto";
-        }
-      }
-
-      // Configuração das Animações (ScrollReveal)
+      // Configuração das Animações
       const scrollRevealOption = {
         distance: "50px",
         origin: "bottom",
@@ -1081,14 +881,9 @@
         delay: 500,
       });
 
-      ScrollReveal().reveal(".portfolio__card", {
+      ScrollReveal().reveal(".gallery__card", {
         ...scrollRevealOption,
         interval: 150,
-      });
-
-      ScrollReveal().reveal(".blog__card", {
-        duration: 1000,
-        interval: 200,
       });
     </script>
   </body>
