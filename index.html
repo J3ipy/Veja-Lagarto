@@ -271,41 +271,41 @@
         transform: rotate(2deg);
       }
 
-      /* --- ABOUT SECTION --- */
-      .about {
+      /* --- ABOUT & CITY SECTIONS --- */
+      .about, .city {
         background-color: var(--white);
       }
 
-      .about__container {
+      .about__container, .city__container {
         display: grid;
         gap: 4rem;
         align-items: center;
       }
 
-      .about__image {
+      .about__image, .city__image {
         position: relative;
         padding: 1rem;
         border: 2px solid var(--text-dark);
         background-color: var(--accent-yellow);
       }
       
-      .about__image img {
+      .about__image img, .city__image img {
         border: 2px solid var(--text-dark);
         filter: grayscale(100%);
         transition: 0.5s;
         mix-blend-mode: multiply;
       }
 
-      .about__image:hover img {
+      .about__image:hover img, .city__image:hover img {
         filter: grayscale(0%);
         mix-blend-mode: normal;
       }
 
-      .about__content {
+      .about__content, .city__content {
         text-align: center;
       }
 
-      .about__content p {
+      .about__content p, .city__content p {
         margin-bottom: 1.5rem;
         color: var(--text-light);
         line-height: 1.8;
@@ -602,12 +602,13 @@
             margin-inline: 0;
         }
 
-        .about__container {
+        /* About & City: Grid e Alinhamento */
+        .about__container, .city__container {
           grid-template-columns: 1fr 1fr;
           text-align: left;
         }
         
-        .about__content {
+        .about__content, .city__content {
             text-align: left;
         }
 
@@ -630,7 +631,7 @@
     <nav>
       <div class="nav__header">
         <div class="nav__logo">
-          <a href="#">Feira<span>Lagarto</span>.</a>
+          <a href="#">Veja<span>Lagarto</span>.</a>
         </div>
         <div class="nav__menu__btn" id="menu-btn">
           <i class="ri-menu-3-line"></i>
@@ -640,6 +641,7 @@
             <li><a href="#about">O Projeto</a></li>
             <li><a href="#team">Equipe</a></li>
             <li><a href="#gallery">Eixos</a></li>
+            <li><a href="#city">A Cidade</a></li>
             <li><a href="#location">Localização</a></li>
         </ul>
       </div>
@@ -727,13 +729,13 @@
           </div>
           <div class="gallery__card">
             <img src="fotos/raizes02.jpg" alt="Eixo Roupas" />
-            <h4>Raizes</h4>
-            <p>A cidade de Lagarto é uma grande produtora de raizes como Mandioca, Macaxeira e Inhame.</p>
+            <h4>Raízes</h4>
+            <p>A cidade de Lagarto é uma grande produtora de raízes como Mandioca, Macaxeira e Inhame.</p>
           </div>
           <div class="gallery__card">
             <img src="fotos/vegetal01.jpg" alt="Eixo Artesanato" />
             <h4>Pimenta</h4>
-            <p>Nos povoados como Santo Antônio e Fazenda Frande, existem grandes plantações de pimenta.</p>
+            <p>Nos povoados como Santo Antônio e Fazenda Grande, existem grandes plantações de pimenta.</p>
           </div>
           <div class="gallery__card">
             <img src="fotos/carnes04.jpg" alt="Eixo Açougue" />
@@ -754,9 +756,32 @@
       </div>
     </section>
 
+    <section class="city" id="city">
+      <div class="section__container city__container">
+        <div class="city__content">
+          <h2 class="section__header">A Cidade de Lagarto</h2>
+          <p>
+            Localizada na região <strong>Centro-Sul de Sergipe</strong>, no agreste do estado, Lagarto destaca-se como um dos principais polos econômicos e culturais do interior.
+          </p>
+          <p>
+            Conhecida por sua gente trabalhadora, a cidade é uma potência agrícola, sendo uma <strong>grande produtora de mandioca, citros e fumo</strong>, além de possuir um comércio forte e vibrante.
+          </p>
+          <p>
+            Além da economia, Lagarto respira tradição. A cidade abriga o <strong>Parque das Palmeiras</strong>, reconhecido internacionalmente como o <strong>maior parque de vaquejada do mundo</strong>, atraindo turistas e competidores de todos os lugares.
+          </p>
+          <div class="about__btn">
+            <a href="#location" class="btn">VER LOCALIZAÇÃO DA FEIRA</a>
+          </div>
+        </div>
+        <div class="city__image">
+          <img src="https://cavalus.com.br/wp-content/uploads/2020/11/Parque-das-Palmeiras-Complexo-grandioso-que-reune-esporte-comercio-e-lazer-scaled.jpg" alt="Cidade de Lagarto e Parque das Palmeiras" />
+        </div>
+      </div>
+    </section>
+
     <section class="location" id="location">
         <div class="section__container location__content">
-            <h2 class="section__header">Localização</h2>
+            <h2 class="section__header">Localização da Feira</h2>
             <p>A Feira Livre acontece tradicionalmente no centro da cidade, ocupando as principais praças e ruas comerciais.</p>
             <p><strong>Lagarto - Sergipe</strong></p>
             
@@ -878,6 +903,17 @@
       });
       ScrollReveal().reveal(".about__content", {
         ...scrollRevealOption,
+        delay: 500,
+      });
+
+      // Animação para a nova seção da cidade
+      ScrollReveal().reveal(".city__image img", {
+        ...scrollRevealOption,
+        origin: "right",
+      });
+      ScrollReveal().reveal(".city__content", {
+        ...scrollRevealOption,
+        origin: "left",
         delay: 500,
       });
 
