@@ -7,22 +7,30 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+       /* CSS Padrão do Site */
        :root { --primary: #D94F04; --secondary: #2E8B57; --bg-body: #FDFBF7; --text-dark: #2C2C2C; --font-heading: "Merriweather", serif; --font-body: "Lato", sans-serif; }
        * { padding: 0; margin: 0; box-sizing: border-box; }
        body { font-family: var(--font-body); background-color: var(--bg-body); color: var(--text-dark); }
+       
+       /* Navbar */
        nav { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
        .nav__container { max-width: 1200px; margin: auto; padding: 1rem; display: flex; justify-content: space-between; align-items: center; }
        .nav__links { display: flex; gap: 1.5rem; }
        .nav__links a { text-decoration: none; color: inherit; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; }
        .nav__links a:hover, .nav__links a.active { color: var(--primary); }
        
-       .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
-       .photo-card { background: #fff; border: 1px solid #ddd; padding: 0.5rem; }
+       /* Cabeçalho da Página */
+       .page-header { margin-top: 70px; background: #8B4513; color: #fff; padding: 3rem 1rem; text-align: center; }
+       
+       /* Galeria */
+       .content-wrapper { max-width: 1200px; margin: auto; padding: 0 1rem 4rem 1rem; }
+       .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+       .photo-card { background: #fff; border: 1px solid #ddd; padding: 0.5rem; box-shadow: 2px 2px 5px rgba(0,0,0,0.05); transition: transform 0.3s; }
+       .photo-card:hover { transform: translateY(-5px); }
        .photo-card img { width: 100%; height: 250px; object-fit: cover; }
        .caption { font-size: 0.85rem; padding-top: 0.5rem; border-top: 1px solid #eee; margin-top: 0.5rem; }
        .caption strong { display: block; color: var(--primary); text-transform: uppercase; }
-
-       .page-header { margin-top: 70px; background: #8B4513; color: #fff; padding: 3rem 1rem; text-align: center; }
+       .caption span { font-style: italic; color: #666; font-size: 0.75rem; }
     </style>
   </head>
   <body>
@@ -43,33 +51,61 @@
       <p>Barro, couro, madeira e a tradição do fumo.</p>
     </header>
 
-    <section style="padding: 2rem; max-width: 1000px; margin: auto;">
-        <h2 style="color: var(--primary); margin-bottom: 1rem;">Cultura Popular</h2>
-        <p>O artesanato na feira de Lagarto é rico e utilitário. Aqui você encontra panelas de barro feitas à mão, utensílios de madeira e o famoso fumo de rolo, que é parte essencial da história agrícola da região.</p>
-    </section>
+    <div class="content-wrapper">
+        <section style="padding: 2rem 0; text-align: center; max-width: 900px; margin: auto;">
+            <h2 style="color: var(--primary); margin-bottom: 1rem;">Cultura Popular</h2>
+            <p>O artesanato na feira de Lagarto é rico e utilitário. Aqui você encontra panelas de barro feitas à mão, utensílios de madeira, peças em couro e o famoso fumo de rolo, que é parte essencial da identidade cultural da região.</p>
+        </section>
 
-    <div class="gallery-grid">
-        <div class="photo-card">
-            <img src="https://placehold.co/400x300?text=Fumo+de+Rolo" alt="Fumo">
-            <div class="caption">
-                <strong>O Tradicional Fumo de Rolo</strong>
-                <span>Foto: [Nome do Aluno] (2026)</span>
-            </div>
-        </div>
-        <div class="photo-card">
-            <img src="https://placehold.co/400x300?text=Barro" alt="Barro">
-            <div class="caption">
-                <strong>Utensílios de Barro</strong>
-                <span>Foto: [Nome do Aluno] (2026)</span>
-            </div>
-        </div>
-        <div class="photo-card">
-            <img src="https://placehold.co/400x300?text=Couro" alt="Couro">
-            <div class="caption">
-                <strong>Artesanato em Couro</strong>
-                <span>Foto: [Nome do Aluno] (2026)</span>
-            </div>
+        <div class="gallery-grid">
+            
+            <div class="photo-card"><img src="fotos/arte (1).jpg" loading="lazy" alt="Arte em Barro"><div class="caption"><strong>Arte em Barro</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/arte (2).jpg" loading="lazy" alt="Arte em Barro"><div class="caption"><strong>Cerâmica Local</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/arte (3).jpg" loading="lazy" alt="Arte em Barro"><div class="caption"><strong>Escultura Manual</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/arte (4).jpg" loading="lazy" alt="Arte em Barro"><div class="caption"><strong>Peças de Decoração</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/arte (5).jpg" loading="lazy" alt="Arte em Barro"><div class="caption"><strong>Trabalho em Argila</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/arte (6).jpg" loading="lazy" alt="Arte em Barro"><div class="caption"><strong>Artesão Trabalhando</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/arte (7).jpg" loading="lazy" alt="Arte em Barro"><div class="caption"><strong>Detalhes da Arte</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/arte (8).jpg" loading="lazy" alt="Arte em Barro"><div class="caption"><strong>Exposição de Arte</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/arte (9).jpg" loading="lazy" alt="Arte em Barro"><div class="caption"><strong>Cultura do Barro</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/arte (10).jpg" loading="lazy" alt="Arte em Barro"><div class="caption"><strong>Modelagem</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/arte (11).jpg" loading="lazy" alt="Arte em Barro"><div class="caption"><strong>Acabamento Rústico</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/arte (12).jpg" loading="lazy" alt="Arte em Barro"><div class="caption"><strong>Tradição Familiar</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+
+            <div class="photo-card"><img src="fotos/artesanato (1).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Artesanato Local</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (2).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Tradição Manual</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (3).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Cultura Viva</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (4).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Peças Típicas</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (5).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Arte do Povo</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (6).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Detalhes Feitos à Mão</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (7).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Utensílios Regionais</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (8).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Feira de Artesanato</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (9).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Cores e Formas</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (10).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Identidade Cultural</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (11).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Artesanato Local</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (12).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Tradição Manual</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (13).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Cultura Viva</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (14).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Peças Típicas</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (15).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Arte do Povo</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (16).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Detalhes Feitos à Mão</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (17).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Utensílios Regionais</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (18).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Feira de Artesanato</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (19).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Cores e Formas</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (20).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Identidade Cultural</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (21).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Artesanato Local</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (22).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Tradição Manual</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (23).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Cultura Viva</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (24).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Peças Típicas</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (25).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Arte do Povo</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (26).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Detalhes Feitos à Mão</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (27).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Utensílios Regionais</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/artesanato (28).jpg" loading="lazy" alt="Artesanato Local"><div class="caption"><strong>Feira de Artesanato</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+
         </div>
     </div>
+
+    <footer style="background: #2C2C2C; color: #aaa; padding: 2rem; text-align: center;">
+      <p>© 2026 Vozes e Retratos da Feira de Lagarto. Projeto Acadêmico.</p>
+    </footer>
   </body>
 </html>
