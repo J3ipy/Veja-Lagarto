@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artesanato e Cultura | Feira de Lagarto</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+       :root { --primary: #D94F04; --secondary: #2E8B57; --bg-body: #FDFBF7; --text-dark: #2C2C2C; --font-heading: "Merriweather", serif; --font-body: "Lato", sans-serif; }
+       * { padding: 0; margin: 0; box-sizing: border-box; }
+       body { font-family: var(--font-body); background-color: var(--bg-body); color: var(--text-dark); }
+       nav { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
+       .nav__container { max-width: 1200px; margin: auto; padding: 1rem; display: flex; justify-content: space-between; align-items: center; }
+       .nav__links { display: flex; gap: 1.5rem; }
+       .nav__links a { text-decoration: none; color: inherit; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; }
+       .nav__links a:hover, .nav__links a.active { color: var(--primary); }
+       
+       .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+       .photo-card { background: #fff; border: 1px solid #ddd; padding: 0.5rem; }
+       .photo-card img { width: 100%; height: 250px; object-fit: cover; }
+       .caption { font-size: 0.85rem; padding-top: 0.5rem; border-top: 1px solid #eee; margin-top: 0.5rem; }
+       .caption strong { display: block; color: var(--primary); text-transform: uppercase; }
+
+       .page-header { margin-top: 70px; background: #8B4513; color: #fff; padding: 3rem 1rem; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__container">
+        <div class="nav__logo" style="font-weight:900; color:var(--primary);">GuiaLagarto</div>
+        <div class="nav__links">
+          <a href="index.html">Início</a>
+          <a href="mercado.html">Feira & Trocas</a>
+          <a href="artesanato.html" class="active">Artesanato</a>
+          <a href="alimentos.html">Alimentos</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="page-header">
+      <h1>Mãos que Criam: Artesanato</h1>
+      <p>Barro, couro, madeira e a tradição do fumo.</p>
+    </header>
+
+    <section style="padding: 2rem; max-width: 1000px; margin: auto;">
+        <h2 style="color: var(--primary); margin-bottom: 1rem;">Cultura Popular</h2>
+        <p>O artesanato na feira de Lagarto é rico e utilitário. Aqui você encontra panelas de barro feitas à mão, utensílios de madeira e o famoso fumo de rolo, que é parte essencial da história agrícola da região.</p>
+    </section>
+
+    <div class="gallery-grid">
+        <div class="photo-card">
+            <img src="https://placehold.co/400x300?text=Fumo+de+Rolo" alt="Fumo">
+            <div class="caption">
+                <strong>O Tradicional Fumo de Rolo</strong>
+                <span>Foto: [Nome do Aluno] (2026)</span>
+            </div>
+        </div>
+        <div class="photo-card">
+            <img src="https://placehold.co/400x300?text=Barro" alt="Barro">
+            <div class="caption">
+                <strong>Utensílios de Barro</strong>
+                <span>Foto: [Nome do Aluno] (2026)</span>
+            </div>
+        </div>
+        <div class="photo-card">
+            <img src="https://placehold.co/400x300?text=Couro" alt="Couro">
+            <div class="caption">
+                <strong>Artesanato em Couro</strong>
+                <span>Foto: [Nome do Aluno] (2026)</span>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
