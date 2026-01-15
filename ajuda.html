@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajuda ao Visitante | Raízes de Lagarto</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+      /* --- ESTILO GERAL --- */
+      :root {
+        --bg-body: #5D4037; --bg-card: #3E2723; --text-main: #FFE0B2;
+        --accent: #00E676; --accent-hover: #00c261;
+        --stitch-color: rgba(255,255,255,0.6);
+        --font-heading: "Merriweather", serif; --font-body: "Lato", sans-serif;
+        --header-height: 4rem; 
+      }
+      * { padding: 0; margin: 0; box-sizing: border-box; }
+      body { font-family: var(--font-body); background-color: var(--bg-body); color: var(--text-main); line-height: 1.8; }
+      a { text-decoration: none; color: inherit; transition: 0.3s; }
+      ul { list-style: none; }
+      img { width: 100%; display: block; object-fit: cover; }
+      
+      /* Navbar */
+      nav { background: var(--bg-card); box-shadow: 0 4px 15px rgba(0,0,0,0.4); position: fixed; width: 100%; top: 0; z-index: 2000; border-bottom: 2px solid var(--bg-body); height: var(--header-height); display: flex; align-items: center; }
+      .nav__container { width: 95%; max-width: 100%; margin: auto; padding: 0 1rem; display: flex; justify-content: space-between; align-items: center; }
+      .nav__logo { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 900; color: var(--text-main); text-transform: uppercase; border: 2px solid var(--accent); padding: 5px 12px; border-radius: 4px; letter-spacing: 1px; z-index: 2010; }
+      .nav__logo span { color: var(--accent); }
+      .nav__toggle, .nav__close { display: none; font-size: 1.8rem; color: var(--text-main); cursor: pointer; }
+      .nav__toggle:hover { color: var(--accent); }
+      .nav__links { display: flex; align-items: center; gap: 3rem; }
+      .nav__links a { font-weight: 700; font-size: 0.9rem; text-transform: uppercase; color: var(--text-main); opacity: 0.8; }
+      .nav__links a:hover, .nav__links a.active { color: var(--accent); opacity: 1; text-shadow: 0 0 8px rgba(0, 230, 118, 0.4); border-bottom: 2px solid var(--accent); }
+      
+      @media screen and (max-width: 1024px) {
+        .nav__toggle { display: block; }
+        .nav__links { position: fixed; top: 0; right: -100%; background-color: var(--bg-card); width: 80%; height: 100vh; flex-direction: column; padding-top: 6rem; gap: 2.5rem; transition: 0.4s; box-shadow: -5px 0 15px rgba(0,0,0,0.7); z-index: 2000; border-left: 2px solid var(--accent); }
+        .show-menu { right: 0; }
+        .nav__close { display: block; position: absolute; top: 1.5rem; right: 1.5rem; font-size: 2.5rem; color: var(--accent); }
+        .nav__links a { font-size: 1.3rem; width: 100%; text-align: center; padding: 10px; }
+      }
+
+      /* Hero */
+      .hero { margin-top: var(--header-height); height: 60vh; background-color: #222; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 1rem; background-image: url('fotos/maroto.jpg'); background-size: cover; background-position: center; border-bottom: 4px solid var(--accent); position: relative; }
+      .hero-content { background: rgba(62, 39, 35, 0.9); padding: 2rem; border-radius: 8px; border: 1px solid var(--accent); max-width: 800px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+      .hero h1 { font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 1rem; color: var(--text-main); }
+      .hero p { font-size: 1.1rem; color: #fff; }
+      .hero-credit { position: absolute; bottom: 15px; left: 20px; font-style: italic; font-size: 0.75rem; color: rgba(255, 255, 255, 0.7); z-index: 10; font-family: var(--font-body); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+
+      /* Section Geral */
+      .section { padding: 4rem 1rem; max-width: 1200px; margin: auto; }
+      .section__title { font-family: var(--font-heading); font-size: 2rem; text-align: center; margin-bottom: 3rem; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
+
+      /* Welcome Text (Destaque) */
+      .welcome-text { text-align: center; max-width: 800px; margin: auto; background: rgba(62, 39, 35, 0.3); padding: 2rem; border-radius: 8px; border-left: 4px solid var(--accent); font-size: 1.1rem; font-weight: 700; margin-bottom: 4rem; }
+
+      /* --- ESTILO DAS LINHAS DE SERVIÇO (Igual Mapas Ilustrativos) --- */
+      .map-row {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        margin: 3rem 0;
+        background: rgba(0, 0, 0, 0.2);
+        padding: 2rem;
+        border-radius: 8px;
+        border: 1px dashed var(--stitch-color);
+      }
+
+      @media (max-width: 768px) {
+        .map-row { flex-direction: column; text-align: center; }
+      }
+
+      .map-content { flex: 1; }
+      
+      .map-content h3 {
+        font-family: var(--font-heading);
+        color: var(--accent);
+        margin-bottom: 0.5rem;
+        font-size: 1.6rem;
+      }
+      
+      .map-content p {
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+        font-size: 1rem;
+      }
+
+      .map-frame { flex: 1.2; position: relative; }
+
+      /* Estilo da Imagem (Papel/Mapa) */
+      .map-img {
+        width: 100%;
+        height: 300px; /* Altura fixa para uniformidade */
+        display: block;
+        object-fit: cover;
+        border-radius: 4px;
+        border: 4px solid #D7CCC8; /* Borda cor de papel */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        /* Filtro leve para integrar, mas menos sépia que o mapa desenhado para mostrar a foto real */
+        filter: contrast(110%); 
+        transition: transform 0.3s;
+      }
+
+      .map-img:hover {
+        border-color: var(--accent);
+      }
+
+      /* Link de Ação */
+      .link-arrow {
+        color: var(--accent);
+        font-weight: 700;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        transition: all 0.3s;
+        border: 1px solid var(--accent);
+        padding: 8px 15px;
+        border-radius: 4px;
+      }
+      .link-arrow:hover { background: var(--accent); color: #000; }
+
+      /* --- CARROSSEL --- */
+      .carousel-container { position: relative; overflow: hidden; }
+      .carousel-wrapper { position: relative; width: 100%; }
+      .map-slide { display: none; width: 100%; animation: fadeEffect 0.5s; }
+      .map-slide.active { display: block; }
+      
+      .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.6); color: var(--accent); border: none; font-size: 1.5rem; padding: 10px 15px; cursor: pointer; border-radius: 50%; z-index: 10; transition: 0.3s; }
+      .carousel-btn:hover { background-color: var(--accent); color: #000; }
+      .prev-btn { left: 10px; } .next-btn { right: 10px; }
+      
+      .carousel-dots { text-align: center; margin-top: 10px; position: absolute; bottom: 15px; width: 100%; z-index: 10; }
+      .dot { cursor: pointer; height: 10px; width: 10px; margin: 0 5px; background-color: #bbb; border-radius: 50%; display: inline-block; transition: background-color 0.6s ease; }
+      .dot.active, .dot:hover { background-color: var(--accent); }
+      
+      @keyframes fadeEffect { from {opacity: 0.4} to {opacity: 1} }
+
+      /* Footer */
+      footer { background: var(--bg-card); color: var(--text-main); padding: 3rem 1rem; text-align: center; margin-top: 4rem; border-top: 4px solid var(--accent); }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__container">
+        <div class="nav__logo">Raízes<span>Lagarto</span></div>
+        <div class="nav__toggle" id="nav-toggle"><i class="ri-menu-line"></i></div>
+        <div class="nav__links" id="nav-menu">
+          <div class="nav__close" id="nav-close"><i class="ri-close-line"></i></div>
+          <a href="index.html" onclick="closeMenu()">Início</a>
+          <a href="quemSomos.html" onclick="closeMenu()">Quem Somos</a>
+          <a href="vaquejada.html" onclick="closeMenu()">Vaquejada</a>
+          <a href="cultura.html" onclick="closeMenu()">Macaxeira & Cultura</a>
+          <a href="praca.html" onclick="closeMenu()">Praça e Eventos</a>
+          <a href="ajuda.html" class="active" onclick="closeMenu()">Ajuda ao visitante</a>
+          <a href="compartilhe.html" onclick="closeMenu()">Faça parte!</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-content">
+        <h1>Guia de Apoio</h1>
+        <p>Segurança, saúde e transporte para uma visita tranquila.</p>
+      </div>
+      <span class="hero-credit">Foto: Gustavo Anthony Ribeiro Santana (2026)</span>
+    </header>
+
+    <section class="section">
+      <h2 class="section__title">Serviços Essenciais</h2>
+      
+      <div class="welcome-text">
+        <p>
+          Para garantir que sua experiência em Lagarto seja segura e confortável, reunimos aqui os principais pontos de apoio da cidade. Abaixo, você encontra informações visuais e links de localização para o Terminal Rodoviário, os principais hospitais e a segurança pública.
+        </p>
+      </div>
+
+      <div class="map-row">
+        <div class="map-content">
+          <h3>Terminal Rodoviário</h3>
+          <p>
+            O ponto de chegada e partida. Localizado estrategicamente, conecta Lagarto às capitais vizinhas e cidades do interior. Aqui operam empresas como Rota e Coopertalse.
+          </p>
+          <p>
+            Fotos: Gustavo Anthony Ribeiro Santana (2026)
+          </p>
+          <a href="https://maps.app.goo.gl/M4gEwZPDigKRZEaWA" target="_blank" class="link-arrow">
+            Ver Localização <i class="ri-map-pin-line"></i>
+          </a>
+        </div>
+        <div class="map-frame carousel-container">
+          <button class="carousel-btn prev-btn">❮</button>
+          <div class="carousel-wrapper">
+             <img src="fotos/rodoviaria_frente.jpg" class="map-img map-slide active" alt="Fachada da Rodoviária">
+             <img src="fotos/rodoviaria_plataforma.jpg" class="map-img map-slide" alt="Plataforma de Embarque">
+          </div>
+          <button class="carousel-btn next-btn">❯</button>
+          <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-row">
+        <div class="map-content">
+          <h3>Hospital Universitário (HUL-UFS)</h3>
+          <p>
+            Referência federal em média e alta complexidade. Equipado com urgência e emergência 24h, é a principal unidade de saúde da região centro-sul de Sergipe.
+          </p>
+          <p>
+            Fotos: autor
+          </p>
+          <a href="https://maps.app.goo.gl/ydLAWyqSmwRSHmUC8" target="_blank" class="link-arrow">
+            Ver Localização <i class="ri-hospital-line"></i>
+          </a>
+        </div>
+        <div class="map-frame carousel-container">
+          <button class="carousel-btn prev-btn">❮</button>
+          <div class="carousel-wrapper">
+             <img src="fotos/hu_fachada.jpg" class="map-img map-slide active" alt="Entrada do HUL">
+             <img src="fotos/hu_emergencia.jpg" class="map-img map-slide" alt="Recepção e Emergência">
+          </div>
+          <button class="carousel-btn next-btn">❯</button>
+          <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-row">
+        <div class="map-content">
+          <h3>Hospital N. Sra. da Conceição (Maroto)</h3>
+          <p>
+            Instituição tradicional e filantrópica no coração da cidade. Oferece atendimento de urgência e diversas especialidades médicas, com fácil acesso pelo centro.
+          </p>
+          <p>
+            Fotos: Gustavo Anthony Ribeiro Santana (2026)
+          </p>
+          <a href="https://maps.app.goo.gl/QK3PvocqeuXkRrFk7" target="_blank" class="link-arrow">
+            Ver Localização <i class="ri-heart-pulse-line"></i>
+          </a>
+        </div>
+        <div class="map-frame carousel-container">
+          <button class="carousel-btn prev-btn">❮</button>
+          <div class="carousel-wrapper">
+             <img src="fotos/maroto.jpg" class="map-img map-slide active" alt="Fachada Hospital Maroto">
+             <img src="fotos/maroto_entrada.jpg" class="map-img map-slide" alt="Acesso Principal">
+          </div>
+          <button class="carousel-btn next-btn">❯</button>
+          <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-row">
+        <div class="map-content">
+          <h3>Delegacia Cidadã de Lagarto</h3>
+          <p>
+            Sede da Delegacia Cidadã de Lagarto. Há também postos móveis próximos à praça da feira em dias de movimento.
+          </p>
+          <p>
+            Fotos:
+          </p>
+          <a href="https://maps.app.goo.gl/Bno7tbEu6AdwYeTj7" target="_blank" class="link-arrow">
+            Ver Localização <i class="ri-shield-star-line"></i>
+          </a>
+        </div>
+        <div class="map-frame carousel-container">
+          <button class="carousel-btn prev-btn">❮</button>
+          <div class="carousel-wrapper">
+             <img src="fotos/policia_bpm.jpg" class="map-img map-slide active" alt="fachada">
+             <img src="fotos/policia_viatura.jpg" class="map-img map-slide" alt="Viatura e Segurança">
+          </div>
+          <button class="carousel-btn next-btn">❯</button>
+          <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <footer>
+      <p>© 2026 Raízes de Lagarto. Fotos Autorais. Projeto Acadêmico.</p>
+    </footer>
+
+    <script src="./src/js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faça Parte | Raízes de Lagarto</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+      /* --- ESTILO GERAL (PALETA COURO CURTIDO) --- */
+      :root {
+        --bg-body: #5D4037;       /* Marrom Couro Envelhecido */
+        --bg-card: #3E2723;       /* Marrom Café Quase Preto */
+        --text-main: #FFE0B2;     /* Pêssego/Creme */
+        --accent: #00E676;        /* Verde Neon */
+        --accent-hover: #00c261;
+        
+        --font-heading: "Merriweather", serif;
+        --font-body: "Lato", sans-serif;
+        --header-height: 4rem; 
+      }
+
+      * { padding: 0; margin: 0; box-sizing: border-box; }
+      
+      body { 
+        font-family: var(--font-body); 
+        background-color: var(--bg-body); 
+        color: var(--text-main); 
+        line-height: 1.6; 
+      }
+
+      a { text-decoration: none; color: inherit; transition: 0.3s; }
+      ul { list-style: none; }
+      img { width: 100%; display: block; object-fit: cover; }
+      
+      /* --- NAVBAR --- */
+      nav { 
+        background: var(--bg-card); 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4); 
+        position: fixed; 
+        width: 100%; 
+        top: 0; 
+        z-index: 2000; 
+        border-bottom: 2px solid var(--bg-body);
+        height: var(--header-height);
+        display: flex;
+        align-items: center;
+      }
+
+      .nav__container { 
+        width: 95%; 
+        max-width: 100%; 
+        margin: auto; 
+        padding: 0 1rem; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+      }
+      
+      .nav__logo { 
+        font-family: var(--font-heading); 
+        font-size: 1.2rem; 
+        font-weight: 900; 
+        color: var(--text-main); 
+        text-transform: uppercase; 
+        border: 2px solid var(--accent); 
+        padding: 5px 12px;
+        border-radius: 4px;
+        letter-spacing: 1px;
+        z-index: 2010; 
+      }
+      .nav__logo span { color: var(--accent); }
+
+      .nav__toggle, .nav__close {
+        display: none; 
+        font-size: 1.8rem;
+        color: var(--text-main);
+        cursor: pointer;
+      }
+      
+      .nav__toggle:hover { color: var(--accent); }
+
+      .nav__links { 
+        display: flex; 
+        align-items: center;
+        gap: 3rem; 
+      }
+
+      .nav__links a { 
+        font-weight: 700; 
+        font-size: 0.9rem; 
+        text-transform: uppercase; 
+        color: var(--text-main); 
+        opacity: 0.8; 
+      }
+
+      .nav__links a:hover, .nav__links a.active { 
+        color: var(--accent); 
+        opacity: 1;
+        text-shadow: 0 0 8px rgba(0, 230, 118, 0.4); 
+        border-bottom: 2px solid var(--accent); /* Adicionei para marcar a página atual */
+      }
+
+      /* --- RESPONSIVIDADE MENU --- */
+      @media screen and (max-width: 1024px) {
+        .nav__toggle { display: block; }
+
+        .nav__links {
+          position: fixed;
+          top: 0;
+          right: -100%; 
+          background-color: var(--bg-card);
+          width: 80%; 
+          height: 100vh;
+          flex-direction: column; 
+          padding-top: 6rem; 
+          gap: 2.5rem;
+          transition: 0.4s; 
+          box-shadow: -5px 0 15px rgba(0,0,0,0.7);
+          z-index: 2000;
+          border-left: 2px solid var(--accent);
+        }
+
+        .show-menu { right: 0; }
+
+        .nav__close {
+          display: block; 
+          position: absolute;
+          top: 1.5rem;
+          right: 1.5rem;
+          font-size: 2.5rem;
+          color: var(--accent);
+        }
+
+        .nav__links a {
+          font-size: 1.3rem;
+          width: 100%;
+          text-align: center;
+          padding: 10px;
+        }
+        
+        .nav__links a:hover {
+            background-color: rgba(0, 230, 118, 0.1);
+        }
+      }
+      
+      /* --- HERO --- */
+      .hero { 
+        margin-top: var(--header-height); 
+        height: 60vh; /* Altura ajustada para páginas internas */
+        background-color: #222; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        text-align: center; 
+        color: #fff; 
+        padding: 1rem; 
+        background-image: url('fotos/arte (3).jpg'); 
+        background-size: cover; 
+        background-position: center; 
+        border-bottom: 4px solid var(--accent);
+        position: relative; /* Para o crédito da foto */
+      }
+      
+      .hero-content {
+        background: rgba(62, 39, 35, 0.9); 
+        padding: 2rem;
+        border-radius: 8px;
+        border: 1px solid var(--accent);
+        max-width: 800px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      }
+
+      .hero h1 { 
+        font-family: var(--font-heading); 
+        font-size: 2.5rem; 
+        margin-bottom: 1rem; 
+        color: var(--text-main);
+      }
+      .hero p { font-size: 1.1rem; color: #fff; }
+
+      /* Crédito da Foto */
+      .hero-credit {
+        position: absolute;
+        bottom: 15px; 
+        left: 20px;   
+        font-style: italic;
+        font-size: 0.75rem; 
+        color: rgba(255, 255, 255, 0.7); 
+        z-index: 10;
+        font-family: var(--font-body);
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+      }
+      
+      /* --- SECTIONS --- */
+      .section { padding: 4rem 1rem; max-width: 1200px; margin: auto; }
+      
+      .section__title { 
+        font-family: var(--font-heading); 
+        font-size: 2rem; 
+        text-align: center; 
+        margin-bottom: 2rem; 
+        color: var(--accent); 
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      
+      /* O CARD (Destaque) */
+      .welcome-text {
+        text-align: center; 
+        max-width: 800px; 
+        margin: auto;
+        background: rgba(62, 39, 35, 0.3); 
+        padding: 2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--accent);
+        font-size: 1.1rem; 
+        font-weight: 700;
+        margin-bottom: 2rem; 
+      }
+
+      /* O TEXTO FORA DO CARD (Narrativa) */
+      .story-text {
+        max-width: 800px;
+        margin: auto;
+        text-align: justify; 
+      }
+      
+      .story-text p {
+        margin-bottom: 1.5rem;
+        text-indent: 3rem; 
+        opacity: 0.9;
+      }
+      
+      @media(max-width: 768px) {
+        .story-text p { text-indent: 0; }
+        .hero h1 { font-size: 1.8rem; } 
+      }
+
+      /* --- CARDS GRID --- */
+      .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center; }
+      
+      .guide-card { 
+        background: var(--bg-card); 
+        padding: 2rem; 
+        border-radius: 8px; 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        transition: transform 0.3s ease;
+        border-bottom: 3px solid transparent; 
+      }
+      .guide-card:hover {
+        transform: translateY(-5px);
+        border-bottom: 3px solid var(--accent); 
+      }
+      
+      .guide-card i { 
+        font-size: 3rem; 
+        color: var(--accent); 
+        display: block; 
+        margin-bottom: 1rem; 
+        text-shadow: 0 0 10px rgba(0, 230, 118, 0.3);
+      }
+      .guide-card h3 { color: #fff; margin-bottom: 0.5rem; }
+      .guide-card p { color: var(--text-main); opacity: 0.9; }
+      
+      /* --- MAPA / FORMS CONTAINER --- */
+      .map-container {
+        width: 100%;
+        height: 400px;
+        margin-top: 3rem;
+        border: 2px solid var(--bg-card);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      }
+      .map-container iframe {
+        filter: invert(90%) hue-rotate(180deg) contrast(90%);
+      }
+      
+      /* BOTÃO DO FORMS */
+      .form-link {
+        color: var(--bg-card); /* Texto escuro para contraste */
+        background-color: var(--accent); /* Fundo Neon */
+        font-weight: bold;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 1rem;
+        border: 1px solid var(--accent);
+        padding: 0.8rem 2rem;
+        border-radius: 4px;
+        text-transform: uppercase;
+        box-shadow: 0 0 15px rgba(0, 230, 118, 0.4);
+      }
+      .form-link:hover {
+        background: transparent;
+        color: var(--accent);
+        box-shadow: 0 0 25px rgba(0, 230, 118, 0.6);
+      }
+      
+      /* --- EQUIPE --- */
+      .ifs-card {
+        max-width: 600px;
+        margin: 2rem auto;
+        background: var(--bg-card); 
+        padding: 10px;
+        border: 1px solid #4a3b32;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+      }
+      .ifs-card img {
+        border-radius: 4px;
+        opacity: 0.9;
+      }
+      .ifs-caption {
+        font-size: 0.85rem;
+        color: var(--text-main);
+        margin-top: 0.5rem;
+        font-style: italic;
+        text-align: center;
+        border-top: 1px solid #4a3b32;
+        padding-top: 5px;
+      }
+
+      /* Footer */
+      footer { 
+        background: var(--bg-card); 
+        color: var(--text-main); 
+        padding: 3rem 1rem; 
+        text-align: center; 
+        margin-top: 4rem; 
+        border-top: 4px solid var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__container">
+        <div class="nav__logo">Raízes<span>Lagarto</span></div>
+        
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-menu-line"></i>
+        </div>
+
+        <div class="nav__links" id="nav-menu">
+          <div class="nav__close" id="nav-close">
+            <i class="ri-close-line"></i>
+          </div>
+
+          <a href="index.html" onclick="closeMenu()">Início</a>
+          <a href="quemSomos.html" onclick="closeMenu()">Quem Somos</a>
+          <a href="vaquejada.html" onclick="closeMenu()">Vaquejada</a>
+          <a href="cultura.html" onclick="closeMenu()">Macaxeira & Cultura</a>
+          <a href="praca.html" onclick="closeMenu()">Praça e Eventos</a>
+          <a href="ajuda.html" onclick="closeMenu()">Ajuda ao visitante</a> 
+          <a href="compartilhe.html" class="active" onclick="closeMenu()">Faça parte!</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-content">
+        <h1>Participe da História</h1>
+        <p>Compartilhe sua memória, ajude a manter essa cultura pulsando.</p>
+      </div>
+      <span class="hero-credit">Foto: Vicente Gabriel Loiola Souza (2026)</span>
+    </header>
+
+    <section class="section">
+      <h2 class="section__title">Sobre sua contribuição</h2>
+      
+      <div class="welcome-text">
+        <p>
+          Os dados enviados pelo formulário serão usados apenas neste projeto, para organização das contribuições e eventual contato com você. Não serão vendidos, compartilhados com terceiros ou usados para fins comerciais. Recomenda‑se não informar dados sensíveis (como documentos pessoais ou bancários).
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Contribua com o Projeto</h2>
+      <div class="guide-grid">
+        <div class="guide-card">
+          <i class="ri-camera-fill"></i>
+          <h3>Envie Fotos</h3>
+          <p>Tem fotos antigas da feira ou da vaquejada? Ajude a preservar nossa memória visual.</p>
+        </div>
+        <div class="guide-card">
+          <i class="ri-quill-pen-line"></i>
+          <h3>Conte Histórias</h3>
+          <p>Sabe de algum "causo" ou lenda local? Queremos registrar a tradição oral.</p>
+        </div>
+        <div class="guide-card">
+          <i class="ri-lightbulb-flash-line"></i>
+          <h3>Sugestões</h3>
+          <p>O que faltou no nosso guia? Envie sugestões de melhoria para o site.</p>
+        </div>
+        <div class="guide-card">
+          <i class="ri-mail-send-line"></i>
+          <h3>Contato</h3>
+          <p>Preencha o formulário abaixo ou entre em contato com nossa equipe.</p>
+        </div>
+      </div>
+
+      <div class="map-container">
+         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfC2LKX8dZh3cQ5kX-FwTPX3oMo2NywisqNXHivdmhjnOicYw/viewform" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">Carregando…</iframe>
+      </div>
+      
+      <div style="text-align: center; margin-top: 2rem;">
+         <a href="https://forms.gle/hCGwNNBsEpLJWPP48" target="_blank" class="form-link">Preencher Formulário</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Raízes de Lagarto. Fotos Autorais. Projeto Acadêmico.</p>
+    </footer>
+
+    <script src="./src/js/script.js"></script>
+  </body>
+</html>

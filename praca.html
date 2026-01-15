@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Praça e Eventos | Raízes de Lagarto</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+      /* --- ESTILO GERAL --- */
+      :root {
+        --bg-body: #5D4037; --bg-card: #3E2723; --text-main: #FFE0B2;
+        --accent: #00E676; --accent-hover: #00c261;
+        --font-heading: "Merriweather", serif; --font-body: "Lato", sans-serif;
+        --header-height: 4rem; 
+      }
+      * { padding: 0; margin: 0; box-sizing: border-box; }
+      body { font-family: var(--font-body); background-color: var(--bg-body); color: var(--text-main); line-height: 1.8; }
+      a { text-decoration: none; color: inherit; transition: 0.3s; }
+      ul { list-style: none; }
+      img { width: 100%; display: block; object-fit: cover; }
+      
+      /* Navbar */
+      nav { background: var(--bg-card); box-shadow: 0 4px 15px rgba(0,0,0,0.4); position: fixed; width: 100%; top: 0; z-index: 2000; border-bottom: 2px solid var(--bg-body); height: var(--header-height); display: flex; align-items: center; }
+      .nav__container { width: 95%; max-width: 100%; margin: auto; padding: 0 1rem; display: flex; justify-content: space-between; align-items: center; }
+      .nav__logo { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 900; color: var(--text-main); text-transform: uppercase; border: 2px solid var(--accent); padding: 5px 12px; border-radius: 4px; letter-spacing: 1px; z-index: 2010; }
+      .nav__logo span { color: var(--accent); }
+      .nav__toggle, .nav__close { display: none; font-size: 1.8rem; color: var(--text-main); cursor: pointer; }
+      .nav__toggle:hover { color: var(--accent); }
+      .nav__links { display: flex; align-items: center; gap: 3rem; }
+      .nav__links a { font-weight: 700; font-size: 0.9rem; text-transform: uppercase; color: var(--text-main); opacity: 0.8; }
+      .nav__links a:hover, .nav__links a.active { color: var(--accent); opacity: 1; text-shadow: 0 0 8px rgba(0, 230, 118, 0.4); border-bottom: 2px solid var(--accent); }
+      
+      @media screen and (max-width: 1024px) {
+        .nav__toggle { display: block; }
+        .nav__links { position: fixed; top: 0; right: -100%; background-color: var(--bg-card); width: 80%; height: 100vh; flex-direction: column; padding-top: 6rem; gap: 2.5rem; transition: 0.4s; box-shadow: -5px 0 15px rgba(0,0,0,0.7); z-index: 2000; border-left: 2px solid var(--accent); }
+        .show-menu { right: 0; }
+        .nav__close { display: block; position: absolute; top: 1.5rem; right: 1.5rem; font-size: 2.5rem; color: var(--accent); }
+        .nav__links a { font-size: 1.3rem; width: 100%; text-align: center; padding: 10px; }
+      }
+
+      /* Hero */
+      .hero { margin-top: var(--header-height); height: 70vh; background-color: #222; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 1rem; background-image: url('fotos/praca_hero.jpg'); background-size: cover; background-position: center; border-bottom: 4px solid var(--accent); position: relative; }
+      .hero-content { background: rgba(62, 39, 35, 0.9); padding: 2rem; border-radius: 8px; border: 1px solid var(--accent); max-width: 800px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+      .hero h1 { font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 1rem; color: var(--text-main); }
+      .hero p { font-size: 1.1rem; color: #fff; }
+      .hero-credit { position: absolute; bottom: 15px; left: 20px; font-style: italic; font-size: 0.75rem; color: rgba(255, 255, 255, 0.7); z-index: 10; font-family: var(--font-body); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+
+      /* Estrutura de Texto e Citações */
+      .section { padding: 4rem 1rem; max-width: 1000px; margin: auto; }
+      .text-block h2 { font-family: var(--font-heading); color: var(--accent); font-size: 2rem; margin-top: 3rem; margin-bottom: 1.5rem; border-left: 5px solid var(--accent); padding-left: 20px; line-height: 1.2; }
+      .text-block h3 { font-family: var(--font-heading); color: #fff; font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; }
+      .text-block p { margin-bottom: 1.5rem; text-align: justify; opacity: 0.95; font-size: 1.1rem; color: #fff; }
+      .text-block strong { color: var(--accent); }
+      
+      /* Citações [1] */
+      .citation { 
+        font-size: 0.75rem; vertical-align: super; color: var(--accent); text-decoration: none; margin-left: 2px; font-weight: bold; opacity: 0.8;
+      }
+      .citation:hover { opacity: 1; text-decoration: underline; }
+
+      /* Tabela de Eventos */
+      .event-table-container {
+        overflow-x: auto;
+        margin: 2rem 0;
+        background: var(--bg-card);
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      }
+      .event-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 600px;
+      }
+      .event-table th, .event-table td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+      .event-table th {
+        background-color: rgba(0, 230, 118, 0.1);
+        color: var(--accent);
+        font-family: var(--font-heading);
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+      .event-table tr:hover {
+        background-color: rgba(255,255,255,0.05);
+      }
+      .event-table td { color: var(--text-main); font-size: 0.95rem; }
+
+      /* --- CARROSSEL E SERVIÇOS --- */
+      .slide-wrapper { display: none; width: 100%; animation: fadeEffect 0.5s; }
+      .slide-wrapper.active { display: block; }
+      .slide-wrapper img { width: 100%; height: 350px; object-fit: cover; border-radius: 8px 8px 0 0; display: block; border-bottom: 4px solid var(--accent); }
+      .slide-caption-box { background: rgba(0, 0, 0, 0.8); color: #fff; padding: 12px 15px; font-size: 0.95rem; text-align: center; border-radius: 0 0 8px 8px; font-style: italic; border-top: 1px solid rgba(255,255,255,0.1); }
+      
+      .service-row { display: flex; flex-wrap: wrap; gap: 3rem; margin: 4rem 0; background: rgba(62, 39, 35, 0.3); padding: 2rem; border-radius: 12px; border: 1px dashed rgba(255, 255, 255, 0.2); align-items: flex-start; }
+      .service-carousel-col { flex: 1.5; min-width: 300px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-radius: 8px; }
+      .service-info-col { flex: 1; min-width: 280px; padding: 2rem; background: var(--bg-card); border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.05); }
+      .service-info-col h3 { color: var(--accent); font-family: var(--font-heading); margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; font-size: 1.5rem; }
+      .info-list { list-style: none; margin-bottom: 2rem; }
+      .info-list li { margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 12px; color: var(--text-main); font-size: 1rem; }
+      .info-list i { color: var(--accent); font-size: 1.3rem; margin-top: 2px; }
+      .btn-maps { display: block; width: 100%; text-align: center; padding: 14px; background: transparent; border: 1px solid var(--accent); color: var(--accent); font-weight: 800; border-radius: 4px; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s; letter-spacing: 1px; }
+      .btn-maps:hover { background: var(--accent); color: #000; box-shadow: 0 0 20px rgba(0, 230, 118, 0.5); }
+
+      /* Botões Carrossel */
+      .carousel-btn { position: absolute; top: 45%; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.7); color: var(--accent); border: 2px solid transparent; font-size: 1.5rem; padding: 10px 16px; cursor: pointer; border-radius: 50%; z-index: 10; transition: 0.3s; }
+      .carousel-btn:hover { background-color: var(--accent); color: #000; border-color: #000; }
+      .prev-btn { left: -20px; } .next-btn { right: -20px; }
+      
+      @keyframes fadeEffect { from {opacity: 0.4} to {opacity: 1} }
+
+      /* Footer */
+      footer { background: var(--bg-card); color: var(--text-main); padding: 4rem 1rem; text-align: center; margin-top: 6rem; border-top: 4px solid var(--accent); }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__container">
+        <div class="nav__logo">Raízes<span>Lagarto</span></div>
+        <div class="nav__toggle" id="nav-toggle"><i class="ri-menu-line"></i></div>
+        <div class="nav__links" id="nav-menu">
+          <div class="nav__close" id="nav-close"><i class="ri-close-line"></i></div>
+          <a href="index.html" onclick="closeMenu()">Início</a>
+          <a href="quemSomos.html" onclick="closeMenu()">Quem Somos</a>
+          <a href="vaquejada.html" onclick="closeMenu()">Vaquejada</a>
+          <a href="cultura.html" onclick="closeMenu()">Macaxeira & Cultura</a>
+          <a href="praca.html" class="active" onclick="closeMenu()">Praça e Eventos</a>
+          <a href="ajuda.html" onclick="closeMenu()">Ajuda ao visitante</a>
+          <a href="compartilhe.html" onclick="closeMenu()">Faça parte!</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-content">
+        <h1>O Coração da Cidade</h1>
+        <p>Eventos, encontros e partidas: onde Lagarto pulsa.</p>
+      </div>
+      <span class="hero-credit">Foto: Autor (data)</span>
+    </header>
+
+    <section class="section text-block">
+      <h2>Centro de Convergência Cultural</h2>
+      <p>
+        A praça próxima à Feira Livre de Lagarto é muito mais que um espaço de transição. É um hub cultural e logístico onde a cidade pulsa com eventos, transportes e celebrações que movem a economia e a identidade local.
+      </p>
+      
+      <h3>Transportes: Ponto Central</h3>
+      <p>
+        A praça funciona como ponto de parada para ônibus e transportes intermunicipais, conectando Lagarto com cidades vizinhas e todo o Nordeste. Operadoras como a Rota Transportes atuam na região com horários frequentes, facilitando o acesso de visitantes e moradores. <a href="https://www.rotatransportes.com.br/index.php/agencias-2/" target="_blank" class="citation">Verifique a rota de transportes</a>
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="service-row">
+        <div class="service-carousel-col carousel-container">
+          <button class="carousel-btn prev-btn">❮</button>
+          
+          <div class="carousel-wrapper">
+             <div class="map-slide slide-wrapper active">
+                <img src="fotos/rodoviaria_frente.jpg" alt="Rodoviária">
+                <div class="slide-caption-box">Ponto de partida e chegada para todo o Nordeste <br> Autor: Gustavo Anthony Ribeiro Santana (2026)</div>
+             </div>
+             <div class="map-slide slide-wrapper">
+                <img src="fotos/praca_movimento.jpg" alt="Movimento da Praça">
+                <div class="slide-caption-box">Fluxo de transportes na praça do tanque grande <br> Autor: Gustavo Anthony Ribeiro Santana (2026)</div>
+             </div>
+          </div>
+          
+          <button class="carousel-btn next-btn">❯</button>
+        </div>
+
+        <div class="service-info-col">
+          <h3>Logística e Transporte</h3>
+          <p style="font-size: 0.95rem; margin-bottom: 1.5rem; opacity: 0.9; color: #fff;">
+            Recomenda-se chegar com antecedência durante períodos de alta demanda, como a Vaquejada em agosto e o Festival da Mandioca.
+          </p>
+          <ul class="info-list">
+            <li>
+              <i class="ri-bus-line"></i>
+              <span><strong>Hub:</strong> Ônibus Intermunicipais.</span>
+            </li>
+            <li>
+              <i class="ri-map-pin-line"></i>
+              <span>Praça da Feira / Rodoviária.</span>
+            </li>
+            <li>
+              <i class="ri-ticket-line"></i>
+              <span><strong>Empresas:</strong> Rota, Coopertalse.</span>
+            </li>
+          </ul>
+          <a href="https://maps.app.goo.gl/4dmxSGDLjTEaAY1C7" target="_blank" class="btn-maps">Localizar Terminal</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section text-block">
+      <h2>O Maior Evento Cultural</h2>
+      <p>
+        O <strong>Festival da Mandioca</strong> é o maior evento cultural de Lagarto, transformando a praça e toda a cidade em uma grande celebração junina. Dados de 2025 confirmam a magnitude do evento, que reuniu mais de 25 mil pessoas. <a href="https://www.instagram.com/reel/DLV6DyNRe-F/" target="_blank" class="citation">confira</a>
+      </p>
+      <p>
+        Com uma programação típica, o festival traz grandes nomes nacionais como Wesley Safadão, João Gomes e Luan Santana, além de valorizar artistas locais. Os shows geralmente ocorrem no período noturno, entrando pela madrugada.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="service-row">
+        <div class="service-info-col">
+          <h3>Festival da Mandioca</h3>
+          <p style="font-size: 0.95rem; margin-bottom: 1.5rem; opacity: 0.9; color: #fff;">
+            A cidade se veste de chita e a praça vira palco. O maior São João e São Pedro da região acontece aqui.
+          </p>
+          <ul class="info-list">
+            <li>
+              <i class="ri-calendar-check-line"></i>
+              <span><strong>Quando:</strong> Maio a Julho.</span>
+            </li>
+            <li>
+              <i class="ri-music-2-line"></i>
+              <span><strong>Atrações:</strong>shows nacionais e locais.</span>
+            </li>
+            <li>
+              <i class="ri-map-pin-line"></i>
+              <span>Praça do Tanque Grande.</span>
+            </li>
+          </ul>
+          <a href="https://www.instagram.com/festivaldamandiocase/" target="_blank" class="btn-maps">Instagram Oficial</a>
+        </div>
+
+        <div class="service-carousel-col carousel-container">
+          <button class="carousel-btn prev-btn">❮</button>
+          
+          <div class="carousel-wrapper">
+             <div class="map-slide slide-wrapper active">
+                <img src="fotos/festival_palco.jpg" alt="Palco do Festival">
+                <div class="slide-caption-box">Grandes estruturas para receber artistas nacionais</div>
+             </div>
+             <div class="map-slide slide-wrapper">
+                <img src="fotos/festival_publico.png" alt="Público">
+                <div class="slide-caption-box">Pessoas celebrando a cultura junina <br> Autor: Instagram oficial (2025)</div>
+             </div>
+          </div>
+          
+          <button class="carousel-btn next-btn">❯</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section text-block">
+      <h2>Lazer e Família</h2>
+      <p>
+        Além das grandes festas, Lagarto oferece opções regulares de lazer. O <strong>Ferrari Circus</strong> opera na cidade com espetáculos de magia e acrobacia, garantindo diversão para as famílias nos fins de semana.
+      </p>
+      <p>
+        O <strong>Parque das Palmeiras</strong> atua como um segundo grande complexo de eventos, abrigando competições de porte nacional como o Campeonato Portal Vaquejada. 
+      </p>
+
+      <h3>Calendário Consolidado</h3>
+      <p>
+        Para quem quer a experiência completa: combine a feira de segunda-feira (madrugada/manhã) com os eventos culturais. A praça permite vivenciar em poucas horas toda a multiplicidade lagartense.
+      </p>
+
+      <div class="event-table-container">
+        <table class="event-table">
+          <thead>
+            <tr>
+              <th>Período</th>
+              <th>Evento</th>
+              <th>Local</th>
+              <th>Detalhes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Maio-Julho</td>
+              <td>Festival da Mandioca</td>
+              <td>Praça / Tanque Grande</td>
+              <td>70+ atrações, shows noturnos</td>
+            </tr>
+            <tr>
+              <td>Agosto (27-31)</td>
+              <td>Vaquejada Zezé Rocha</td>
+              <td>Parque Zezé Rocha</td>
+              <td>Epicentro nacional, 62ª edição</td>
+            </tr>
+            <tr>
+              <td>Abril (14-19)</td>
+              <td>Campeonato Portal</td>
+              <td>Parque das Palmeiras</td>
+              <td>Etapa profissional de vaquejada</td>
+            </tr>
+            <tr>
+              <td>Segundas</td>
+              <td>Feira Livre</td>
+              <td>Praça / Centro</td>
+              <td>05h às 17h (Tradicional)</td>
+            </tr>
+            <tr>
+              <td>Fins de Semana</td>
+              <td>Ferrari Circus</td>
+              <td>Local Fixo</td>
+              <td>Sessões: 16h, 18h e 20h</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="service-row">
+        <div class="service-carousel-col carousel-container">
+          <button class="carousel-btn prev-btn">❮</button>
+          
+          <div class="carousel-wrapper">
+             <div class="map-slide slide-wrapper active">
+                <img src="fotos/circo.jpg" alt="Ferrari Circus">
+                <div class="slide-caption-box">Magia e diversão para toda a família</div>
+             </div>
+             <div class="map-slide slide-wrapper">
+                <img src="fotos/parque_palmeiras.jpg" alt="Parque das Palmeiras">
+                <div class="slide-caption-box">Estrutura moderna para grandes eventos</div>
+             </div>
+          </div>
+          
+          <button class="carousel-btn next-btn">❯</button>
+        </div>
+
+        <div class="service-info-col">
+          <h3>Entretenimento</h3>
+          <p style="font-size: 0.95rem; margin-bottom: 1.5rem; opacity: 0.9; color: #fff;">
+            Opções que vão do espetáculo circense à adrenalina da pista de vaquejada.
+          </p>
+          <ul class="info-list">
+            <li>
+              <i class="ri-tent-line"></i>
+              <span><strong>Circo:</strong> Sex (20h), Sáb/Dom (16h, 18h, 20h).</span>
+            </li>
+            <li>
+              <i class="ri-trophy-line"></i>
+              <span><strong>Portal Vaquejada:</strong> Abril de 2026.</span>
+            </li>
+          </ul>
+          <a href="https://maps.app.goo.gl/JW7oTzi97WQKQWXYA" target="_blank" class="btn-maps">Localizar Parque</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Raízes de Lagarto. Fotos Autorais. Projeto Acadêmico.</p>
+    </footer>
+
+    <script src="./src/js/script.js"></script>
+  </body>
+</html>

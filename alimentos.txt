@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alimentos e Sabores | Feira de Lagarto</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+       /* CSS Padrão do Site */
+       :root { --primary: #D94F04; --secondary: #2E8B57; --bg-body: #FDFBF7; --text-dark: #2C2C2C; --font-heading: "Merriweather", serif; --font-body: "Lato", sans-serif; }
+       * { padding: 0; margin: 0; box-sizing: border-box; }
+       body { font-family: var(--font-body); background-color: var(--bg-body); color: var(--text-dark); }
+       
+       /* Navbar */
+       nav { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
+       .nav__container { max-width: 1200px; margin: auto; padding: 1rem; display: flex; justify-content: space-between; align-items: center; }
+       .nav__links { display: flex; gap: 1.5rem; }
+       .nav__links a { text-decoration: none; color: inherit; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; }
+       .nav__links a:hover, .nav__links a.active { color: var(--primary); }
+       
+       /* Cabeçalho da Página */
+       .page-header { margin-top: 70px; background: var(--secondary); color: #fff; padding: 3rem 1rem; text-align: center; }
+       
+       /* Seções */
+       .section-title {
+           text-align: center;
+           margin: 3rem 0 1rem 0;
+           color: var(--primary);
+           font-family: var(--font-heading);
+           text-transform: uppercase;
+           border-bottom: 2px solid #ddd;
+           display: inline-block;
+           padding-bottom: 5px;
+       }
+       
+       .content-wrapper { max-width: 1200px; margin: auto; padding: 0 1rem 4rem 1rem; text-align: center; }
+
+       /* Galeria */
+       .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+       .photo-card { background: #fff; border: 1px solid #ddd; padding: 0.5rem; box-shadow: 2px 2px 5px rgba(0,0,0,0.05); }
+       .photo-card img { width: 100%; height: 250px; object-fit: cover; }
+       .caption { font-size: 0.85rem; padding-top: 0.5rem; border-top: 1px solid #eee; margin-top: 0.5rem; text-align: left; }
+       .caption strong { display: block; color: var(--primary); text-transform: uppercase; margin-bottom: 2px; }
+       .caption span { font-style: italic; color: #666; font-size: 0.75rem; }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__container">
+        <div class="nav__logo" style="font-weight:900; color:var(--primary);">GuiaLagarto</div>
+        <div class="nav__links">
+          <a href="index.html">Início</a>
+          <a href="mercado.html">Feira & Trocas</a>
+          <a href="artesanato.html">Artesanato</a>
+          <a href="alimentos.html" class="active">Alimentos</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="page-header">
+      <h1>Cores e Sabores da Terra</h1>
+      <p>Frutas, verduras, carnes e a riqueza da nossa agricultura.</p>
+    </header>
+
+    <div class="content-wrapper">
+        <section style="margin: 2rem auto; max-width: 900px;">
+            <p>A região de Lagarto é uma potência agrícola. Nas bancas, você encontra desde a macaxeira descascada na hora até carnes frescas e uma variedade imensa de frutas e verduras trazidas diretamente dos povoados.</p>
+        </section>
+
+        <h2 class="section-title">1. Frutas da Estação</h2>
+        <div class="gallery-grid">
+            <div class="photo-card"><img src="fotos/frutas01.jpg" alt="Frutas"><div class="caption"><strong>Banca de Frutas</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/frutas03.jpg" alt="Frutas"><div class="caption"><strong>Frutas Selecionadas</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/frutas04.jpg" alt="Frutas"><div class="caption"><strong>Sabores da Terra</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/frutas06.jpg" alt="Frutas"><div class="caption"><strong>Mangas Maduras</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/frutas07.jpg" alt="Frutas"><div class="caption"><strong>Cores Cítricas</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/frutas09.jpg" alt="Frutas"><div class="caption"><strong>Frutas da Estação</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/frutas10.jpg" alt="Frutas"><div class="caption"><strong>Variedade de Sabores</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/frutas11.jpg" alt="Frutas"><div class="caption"><strong>Cores da Feira</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+        </div>
+
+        <h2 class="section-title">2. Raízes, Verduras e Legumes</h2>
+        <div class="gallery-grid">
+            <div class="photo-card"><img src="fotos/raizes02.jpg" alt="Raízes"><div class="caption"><strong>Mandioca da Terra</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/raizes03.jpg" alt="Raízes"><div class="caption"><strong>Macaxeira Fresca</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/raizesevegetais.jpg" alt="Vegetais"><div class="caption"><strong>Mix de Vegetais</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/vegetal01.jpg" alt="Vegetal"><div class="caption"><strong>Pimentas Frescas</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/vegetal02.jpg" alt="Vegetal"><div class="caption"><strong>Corredor de Hortaliças</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/verduras01.jpg" alt="Verduras"><div class="caption"><strong>Hortaliças da Região</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+        </div>
+
+        <h2 class="section-title">3. Carnes e Proteínas</h2>
+        <div class="gallery-grid">
+            <div class="photo-card"><img src="fotos/carnes01.jpg" alt="Carnes"><div class="caption"><strong>Açougue Tradicional</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/carnes02.jpg" alt="Carnes"><div class="caption"><strong>Cortes de Carne</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/carnes03.jpg" alt="Carnes"><div class="caption"><strong>Banca de Carnes</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+        </div>
+
+        <h2 class="section-title">4. Grãos, Farinhas e Ambiente</h2>
+        <div class="gallery-grid">
+            <div class="photo-card"><img src="fotos/graos01.jpg" alt="Grãos"><div class="caption"><strong>Variedade de Grãos</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/graos02.jpg" alt="Grãos"><div class="caption"><strong>Cereais a Granel</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/tapioca.jpg" alt="Tapioca"><div class="caption"><strong>Goma de Tapioca</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/barraca01.jpg" alt="Barraca"><div class="caption"><strong>Barraca Típica</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/corredor01.jpg" alt="Corredor"><div class="caption"><strong>Corredor de Alimentos</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+            <div class="photo-card"><img src="fotos/corredor02.jpg" alt="Corredor"><div class="caption"><strong>Interior do Mercado</strong><span>Foto: Equipe Veja Lagarto (2026)</span></div></div>
+        </div>
+
+    </div>
+
+    <footer style="background: #2C2C2C; color: #aaa; padding: 2rem; text-align: center;">
+      <p>© 2026 Vozes e Retratos da Feira de Lagarto. Projeto Acadêmico.</p>
+    </footer>
+  </body>
+</html>

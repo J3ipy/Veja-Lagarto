@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quem Somos | Raízes de Lagarto</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+      /* --- ESTILO GERAL --- */
+      :root {
+        --bg-body: #5D4037;       /* Marrom Couro Envelhecido (Fundo Site) */
+        --bg-card: #3E2723;       /* Marrom Café (Fundo Card Base) */
+        --text-main: #FFE0B2;     /* Pêssego/Creme */
+        --accent: #00E676;        /* Verde Neon */
+        --stitch-color: rgba(255,255,255,0.6); /* Linha de Costura Branca */
+        
+        --font-heading: "Merriweather", serif;
+        --font-body: "Lato", sans-serif;
+        --header-height: 4rem; 
+      }
+
+      * { padding: 0; margin: 0; box-sizing: border-box; }
+      
+      body { 
+        font-family: var(--font-body); 
+        background-color: var(--bg-body); 
+        color: var(--text-main); 
+        line-height: 1.6; 
+      }
+
+      a { text-decoration: none; color: inherit; transition: 0.3s; }
+      ul { list-style: none; }
+      img { width: 100%; display: block; object-fit: cover; }
+      
+      /* --- NAVBAR --- */
+      nav { 
+        background: var(--bg-card); 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4); 
+        position: fixed; 
+        width: 100%; 
+        top: 0; 
+        z-index: 2000; 
+        border-bottom: 2px solid var(--bg-body);
+        height: var(--header-height);
+        display: flex;
+        align-items: center;
+      }
+
+      .nav__container { 
+        width: 95%; 
+        max-width: 100%; 
+        margin: auto; 
+        padding: 0 1rem; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+      }
+      
+      .nav__logo { 
+        font-family: var(--font-heading); 
+        font-size: 1.2rem; 
+        font-weight: 900; 
+        color: var(--text-main); 
+        text-transform: uppercase; 
+        border: 2px solid var(--accent); 
+        padding: 5px 12px;
+        border-radius: 4px;
+        letter-spacing: 1px;
+        z-index: 2010; 
+      }
+      .nav__logo span { color: var(--accent); }
+
+      .nav__toggle, .nav__close {
+        display: none; 
+        font-size: 1.8rem;
+        color: var(--text-main);
+        cursor: pointer;
+      }
+      .nav__toggle:hover { color: var(--accent); }
+
+      .nav__links { 
+        display: flex; 
+        align-items: center;
+        gap: 3rem; 
+      }
+
+      .nav__links a { 
+        font-weight: 700; 
+        font-size: 0.9rem; 
+        text-transform: uppercase; 
+        color: var(--text-main); 
+        opacity: 0.8; 
+      }
+
+      /* Active Link */
+      .nav__links a:hover, .nav__links a.active { 
+        color: var(--accent); 
+        opacity: 1;
+        text-shadow: 0 0 8px rgba(0, 230, 118, 0.4); 
+        border-bottom: 2px solid var(--accent);
+      }
+
+      /* Responsividade Menu */
+      @media screen and (max-width: 1024px) {
+        .nav__toggle { display: block; }
+        .nav__links {
+          position: fixed; top: 0; right: -100%; 
+          background-color: var(--bg-card); width: 80%; height: 100vh;
+          flex-direction: column; padding-top: 6rem; gap: 2.5rem;
+          transition: 0.4s; box-shadow: -5px 0 15px rgba(0,0,0,0.7);
+          z-index: 2000; border-left: 2px solid var(--accent);
+        }
+        .show-menu { right: 0; }
+        .nav__close { display: block; position: absolute; top: 1.5rem; right: 1.5rem; font-size: 2.5rem; color: var(--accent); }
+        .nav__links a { font-size: 1.3rem; width: 100%; text-align: center; padding: 10px; }
+      }
+      
+      /* --- HERO --- */
+      .hero { 
+        margin-top: var(--header-height); 
+        height: 60vh; 
+        background-color: #222; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        text-align: center; 
+        color: #fff; 
+        padding: 1rem; 
+        background-image: url('fotos/ifs.jpg'); 
+        background-size: cover; 
+        background-position: center; 
+        border-bottom: 4px solid var(--accent);
+        position: relative;
+      }
+      
+      .hero-content {
+        background: rgba(62, 39, 35, 0.9); 
+        padding: 2rem;
+        border-radius: 8px;
+        border: 1px solid var(--accent);
+        max-width: 800px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      }
+
+      .hero h1 { 
+        font-family: var(--font-heading); 
+        font-size: 2.5rem; 
+        margin-bottom: 1rem; 
+        color: var(--text-main);
+      }
+
+      .hero-credit {
+        position: absolute;
+        bottom: 15px; 
+        left: 20px;   
+        font-style: italic;
+        font-size: 0.75rem; 
+        color: rgba(255, 255, 255, 0.7); 
+        z-index: 10;
+        font-family: var(--font-body);
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+      }
+      
+      .hero p { font-size: 1.1rem; color: #fff; }
+      
+      /* --- SECTIONS --- */
+      .section { padding: 4rem 1rem; max-width: 1200px; margin: auto; }
+      
+      .section__title { 
+        font-family: var(--font-heading); 
+        font-size: 2rem; 
+        text-align: center; 
+        margin-bottom: 3rem; 
+        color: var(--accent); 
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      
+      .welcome-text {
+        text-align: center; 
+        max-width: 800px; 
+        margin: auto;
+        background: rgba(62, 39, 35, 0.3); 
+        padding: 2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--accent);
+        font-size: 1.1rem; 
+        font-weight: 700;
+        margin-bottom: 2rem;
+      }
+
+      .story-text { max-width: 800px; margin: auto; text-align: justify; }
+      .story-text p { margin-bottom: 1.5rem; text-indent: 3rem; opacity: 0.9; }
+      @media(max-width: 768px) { .story-text p { text-indent: 0; } .hero h1 { font-size: 1.8rem; } }
+
+      /* --- EQUIPE ESTILO "CINTO E FIVELA" --- */
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cards um pouco mais largos */
+        gap: 4rem; /* Mais espaço entre os cintos */
+        margin-top: 4rem;
+      }
+
+      /* O CORPO DO CINTO (O Card) */
+      .team-card {
+        /* Gradiente para parecer couro curvado */
+        background: linear-gradient(to bottom, #6D4C41 0%, #5D4037 40%, #4E342E 100%);
+        padding: 4rem 1.5rem 2rem; /* Muito espaço no topo para a fivela */
+        border-radius: 16px; /* Bordas mais arredondadas como um cinto gasto */
+        text-align: center;
+        position: relative;
+        box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+        border: 1px solid #3E2723;
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* A COSTURA (Ponto Duplo) */
+      .team-card::after {
+        content: '';
+        position: absolute;
+        top: 12px; left: 12px; right: 12px; bottom: 12px;
+        border: 3px dotted var(--stitch-color); /* Costura mais grossa */
+        border-radius: 12px;
+        pointer-events: none;
+        opacity: 0.8;
+        z-index: 1;
+      }
+
+      /* O "REMENDO" MÁGICO: Esconde a costura atrás da fivela */
+      .team-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 160px; /* Largura similar à fivela */
+          height: 30px; /* Altura para cobrir a costura superior */
+          background: #6D4C41; /* Mesma cor do topo do gradiente do card */
+          z-index: 2; /* Fica acima da costura, abaixo da fivela */
+          border-bottom-left-radius: 20px;
+          border-bottom-right-radius: 20px;
+      }
+
+      .team-card:hover {
+        transform: translateY(-5px);
+      }
+
+      /* A FIVELA (Moldura Metálica Oval) */
+      .avatar-wrapper {
+        position: absolute;
+        top: -50px; /* Posicionada sobre a borda superior */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 170px;  /* Ovalado e grande como na referência */
+        height: 120px;
+        
+        /* Efeito Metálico Rico */
+        background: linear-gradient(135deg, #B0BEC5, #78909C, #455A64);
+        border-radius: 50%;
+        /* Bordas múltiplas para efeito de metal trabalhado */
+        box-shadow: 
+          0 5px 15px rgba(0,0,0,0.6), /* Sombra externa */
+          inset 0 2px 3px rgba(255,255,255,0.7), /* Brilho superior */
+          inset 0 -2px 5px rgba(0,0,0,0.5); /* Sombra interna */
+        border: 6px solid #37474F; /* Borda de metal escuro e grossa */
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10; /* Fica acima de tudo */
+        transition: 0.3s;
+      }
+
+      /* A Foto dentro da Fivela */
+      .avatar-img {
+        width: 140px;
+        height: 95px; /* Acompanha o formato oval */
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #263238; /* Borda interna escura para a foto */
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+      }
+      
+      /* Efeito Hover na Fivela */
+      .team-card:hover .avatar-wrapper {
+        box-shadow: 0 0 25px var(--accent), inset 0 2px 3px rgba(255,255,255,0.7);
+        border-color: var(--accent-hover);
+      }
+
+      /* Conteúdo do Texto */
+      .team-card h5 {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        color: #fff;
+        margin-bottom: 0.5rem;
+        font-weight: 900;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        z-index: 5;
+        margin-top: 1rem;
+      }
+
+      .role-badge {
+        display: inline-block;
+        padding: 5px 15px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        color: #3E2723;
+        background: linear-gradient(to bottom, #D7CCC8, #A1887F); /* Parece uma plaquinha de metal/couro */
+        margin-bottom: 1rem;
+        z-index: 5;
+        border: 1px solid #3E2723;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+      }
+
+      .team-card p {
+        font-size: 1rem;
+        color: #FFE0B2;
+        opacity: 1;
+        line-height: 1.5;
+        z-index: 5;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+      }
+
+      /* Footer */
+      footer { 
+        background: var(--bg-card); 
+        color: var(--text-main); 
+        padding: 3rem 1rem; 
+        text-align: center; 
+        margin-top: 5rem; 
+        border-top: 4px solid var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__container">
+        <div class="nav__logo">Raízes<span>Lagarto</span></div>
+        
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-menu-line"></i>
+        </div>
+
+        <div class="nav__links" id="nav-menu">
+          <div class="nav__close" id="nav-close">
+            <i class="ri-close-line"></i>
+          </div>
+
+          <a href="index.html" onclick="closeMenu()">Início</a>
+          <a href="quemSomos.html" class="active" onclick="closeMenu()">Quem Somos</a>
+          <a href="vaquejada.html" onclick="closeMenu()">Vaquejada</a>
+          <a href="cultura.html" onclick="closeMenu()">Macaxeira & Cultura</a>
+          <a href="praca.html" onclick="closeMenu()">Praça e Eventos</a>
+          <a href="ajuda.html" onclick="closeMenu()">Ajuda ao visitante</a>
+          <a href="compartilhe.html" onclick="closeMenu()">Faça parte!</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-content">
+        <h1>Onde a ideia se originou</h1>
+        <p>Alunos do IFS - Campus Lagarto.</p>
+      </div>
+      <span class="hero-credit">Foto: João Pedro Santana Silva Santos (2026)</span>
+    </header>
+
+    <section class="section">
+      <h2 class="section__title">Os Pilares da Missão</h2>
+      
+      <div class="welcome-text">
+        <p>
+          Este guia existe para Lagarto e para quem ama Lagarto — não apenas para visitantes. Reconhecemos que a Feira Livre não é atração, é vida; que a macaxeira não é curiosidade, é sustento; que a vaquejada não é espetáculo, é vocação. Essas manifestações culturais são o coração pulsante de uma comunidade.
+        </p>
+      </div>
+
+      <div class="story-text">
+        <p>
+            A criação deste guia envolveu pesquisa aprofundada em múltiplas fontes confiáveis.
+            Fontes Públicas: Portais da Prefeitura de Lagarto, publicações da Secretaria de Agricultura, legislação estadual e federal;
+            Documentos Legislativos: Lei Federal 14.930/2024, Lei Estadual 8.954/2021, decretos municipais;
+            Reportagens Especializadas: Publicações em mídia estadual, estadual e nacional sobre vaquejada, macaxeira e economia local;
+            Dados Econômicos: Análises do EMDAGRO (Empresa de Desenvolvimento Agropecuário de Sergipe), EMBRAPA e estudos acadêmicos;
+        </p>
+        <p>
+            Todo esse material foi compilado, organizado e apresentado de forma narrativa que honra a profundidade das informações enquanto mantém acessibilidade para o leitor. O objetivo é criar um documento que funciona tanto como guia turístico quanto como referência acadêmica sobre manifestações culturais nordestinas.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Equipe do Projeto</h2>
+      
+      <div class="team-grid">
+        
+        <div class="team-card">
+          <div class="avatar-wrapper">
+             <img src="./fotos/gustavo.jpeg" alt="Gustavo Anthony" class="avatar-img">
+          </div>
+          
+          <h5>Gustavo Anthony</h5>
+          <span class="role-badge">Frontend & UI</span>
+        </div>
+
+        <div class="team-card">
+          <div class="avatar-wrapper">
+             <img src="./fotos/jp.jpeg" alt="João Pedro" class="avatar-img">
+          </div>
+          
+          <h5>João Pedro</h5>
+          <span class="role-badge">Tech Lead</span>
+        </div>
+
+        <div class="team-card">
+          <div class="avatar-wrapper">
+             <img src="./fotos/vicente.jpeg" alt="Vicente Gabriel" class="avatar-img">
+          </div>
+          
+          <h5>Vicente Gabriel</h5>
+          <span class="role-badge">Conteúdo e Mídia</span>
+        </div>
+
+        <div class="team-card">
+          <div class="avatar-wrapper">
+             <img src="./fotos/luiz.jpeg" alt="Luiz Eduardo" class="avatar-img">
+          </div>
+          
+          <h5>Luiz Eduardo</h5>
+          <span class="role-badge">Conteúdo e Mídia</span>
+        </div>
+
+        <div class="team-card">
+          <div class="avatar-wrapper">
+             <img src="./fotos/ramon.jpeg" alt="Ramon dos Santos" class="avatar-img">
+          </div>
+          
+          <h5>Ramon dos Santos</h5>
+          <span class="role-badge">JavaScript</span>
+        </div>
+
+        <div class="team-card">
+          <div class="avatar-wrapper">
+             <img src="./fotos/joao_antonio.jpeg" alt="João Antonio" class="avatar-img">
+          </div>
+          
+          <h5>João Antonio</h5>
+          <span class="role-badge">Conteúdo e Mídia</span>
+        </div>
+
+        <div class="team-card">
+          <div class="avatar-wrapper">
+             <img src="/lagarto-em-movimento/assets/rosana-Bch6awZd.png" alt="Rosana Siqueira" class="avatar-img">
+          </div>
+          
+          <h5>Rosana Siqueira</h5>
+          <span class="role-badge">Professora Orientadora</span>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Raízes de Lagarto. Fotos Autorais. Projeto Acadêmico.</p>
+    </footer>
+
+    <script src="./src/js/script.js"></script>
+  </body>
+</html>

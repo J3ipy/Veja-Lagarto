@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>O Mercado e Trocas | Feira de Lagarto</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+       /* CSS Padrão do Site */
+       :root { --primary: #D94F04; --secondary: #2E8B57; --bg-body: #FDFBF7; --text-dark: #2C2C2C; --font-heading: "Merriweather", serif; --font-body: "Lato", sans-serif; }
+       * { padding: 0; margin: 0; box-sizing: border-box; }
+       body { font-family: var(--font-body); background-color: var(--bg-body); color: var(--text-dark); }
+       
+       /* Navbar */
+       nav { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
+       .nav__container { max-width: 1200px; margin: auto; padding: 1rem; display: flex; justify-content: space-between; align-items: center; }
+       .nav__links { display: flex; gap: 1.5rem; }
+       .nav__links a { text-decoration: none; color: inherit; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; }
+       .nav__links a:hover, .nav__links a.active { color: var(--primary); }
+       
+       /* Cabeçalho da Página */
+       .page-header { margin-top: 70px; background: var(--secondary); color: #fff; padding: 3rem 1rem; text-align: center; }
+       
+       /* Seções */
+       .section-title {
+           text-align: center;
+           margin: 3rem 0 1rem 0;
+           color: var(--primary);
+           font-family: var(--font-heading);
+           text-transform: uppercase;
+           border-bottom: 2px solid #ddd;
+           display: inline-block;
+           padding-bottom: 5px;
+       }
+       
+       .content-wrapper { max-width: 1200px; margin: auto; padding: 0 1rem 4rem 1rem; text-align: center; }
+
+       /* Galeria */
+       .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+       .photo-card { background: #fff; border: 1px solid #ddd; padding: 0.5rem; box-shadow: 2px 2px 5px rgba(0,0,0,0.05); }
+       .photo-card img { width: 100%; height: 250px; object-fit: cover; }
+       .caption { font-size: 0.85rem; padding-top: 0.5rem; border-top: 1px solid #eee; margin-top: 0.5rem; text-align: left; }
+       .caption strong { display: block; color: var(--primary); text-transform: uppercase; margin-bottom: 2px; }
+       .caption span { font-style: italic; color: #666; font-size: 0.75rem; }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__container">
+        <div class="nav__logo" style="font-weight:900; color:var(--primary);">GuiaLagarto</div>
+        <div class="nav__links">
+          <a href="index.html">Início</a>
+          <a href="mercado.html" class="active">Feira & Trocas</a>
+          <a href="artesanato.html">Artesanato</a>
+          <a href="alimentos.html">Alimentos</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="page-header">
+      <h1>O Mercado e as Trocas</h1>
+      <p>Do comércio tradicional à negociação no "fio do bigode".</p>
+    </header>
+
+    <div class="content-wrapper">
+        <section style="margin: 2rem auto; max-width: 900px;">
+            <p>
+              A Feira de Lagarto se espalha por diversos pontos da cidade. O tradicional <strong>Mercado da Feira</strong> acontece tanto dentro do prédio do Mercado Municipal quanto nas ruas adjacentes, que ficam tomadas por barracas e movimento.
+            </p>
+            <p>
+              Já a famosa <strong>Feira da Troca (o "Rolo")</strong>, embora localizada em uma área mais afastada do centro, reúne uma multidão fiel. É um espaço vibrante onde muitas pessoas se encontram para comprar, vender e trocar mercadorias na base da negociação direta.
+            </p>
+        </section>
+
+        <h2 class="section-title">1. A Feira do "Rolo" (Trocas)</h2>
+        <div class="gallery-grid">
+            <div class="photo-card">
+                <img src="fotos/troca1.jpg" alt="Troca">
+                <div class="caption">
+                    <strong>Movimento da feira</strong>
+                    <span>Foto: João Pedro Santana Silva Santos (2026)</span>
+                </div>
+            </div>
+            <div class="photo-card">
+                <img src="fotos/troca2.jpg" alt="Troca">
+                <div class="caption">
+                    <strong>Ferragens e construção</strong>
+                    <span>Foto: João Pedro Santana Silva Santos (2026)</span>
+                </div>
+            </div>
+            <div class="photo-card">
+                <img src="fotos/troca3.jpg" alt="Troca">
+                <div class="caption">
+                    <strong>Ferramentas e equipamentos</strong>
+                    <span>Foto: João Pedro Santana Silva Santos (2026)</span>
+                </div>
+            </div>
+            <div class="photo-card">
+                <img src="fotos/troca4.jpg" alt="Troca">
+                <div class="caption">
+                    <strong>Bicicletas e peças</strong>
+                    <span>Foto: João Pedro Santana Silva Santos (2026)</span>
+                </div>
+            </div>
+            <div class="photo-card">
+                <img src="fotos/troca5.jpg" alt="Troca">
+                <div class="caption">
+                    <strong>Roupas e vestuário</strong>
+                    <span>Foto: João Pedro Santana Silva Santos (2026)</span>
+                </div>
+            </div>
+            <div class="photo-card">
+                <img src="fotos/troca6.jpg" alt="Troca">
+                <div class="caption">
+                    <strong>Móveis para casa</strong>
+                    <span>Foto: João Pedro Santana Silva Santos (2026)</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">2. A Feira Cotidiana</h2>
+        <div class="gallery-grid">
+            <div class="photo-card">
+                <img src="fotos/feira.jpg" alt="Feira Geral">
+                <div class="caption">
+                    <strong>Utensílios para cozinha</strong>
+                    <span>João Pedro Santana Silva Santos (2026)</span>
+                </div>
+            </div>
+            <div class="photo-card">
+                <img src="fotos/feira2.jpg" alt="Barracas">
+                <div class="caption">
+                    <strong>Logística e comércio</strong>
+                    <span>João Pedro Santana Silva Santos (2026)</span>
+                </div>
+            </div>
+            <div class="photo-card">
+                <img src="fotos/feira3.jpg" alt="Corredores">
+                <div class="caption">
+                    <strong>Calçados em oferta</strong>
+                    <span>João Pedro Santana Silva Santos (2026)</span>
+                </div>
+            </div>
+            <div class="photo-card">
+                <img src="fotos/feira4.jpg" alt="Produtos Variados">
+                <div class="caption">
+                    <strong>Movimento do centro</strong>
+                    <span>João Pedro Santana Silva Santos (2026)</span>
+                </div>
+            </div>
+            <div class="photo-card">
+                <img src="fotos/feira6.jpg" alt="Visão Geral">
+                <div class="caption">
+                    <strong>Tecidos e enxovais</strong>
+                    <span>João Pedro Santana Silva Santos (2026)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="background: #2C2C2C; color: #aaa; padding: 2rem; text-align: center;">
+      <p>© 2026 Vozes e Retratos da Feira de Lagarto. Projeto Acadêmico.</p>
+    </footer>
+  </body>
+</html>

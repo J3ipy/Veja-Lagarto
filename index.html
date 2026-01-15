@@ -3,177 +3,782 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Início | Vozes da Feira de Lagarto</title>
+    <title>Raízes de Lagarto | Guia Cultural</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
     <style>
-      /* --- ESTILO GERAL --- */
+      /* --- ESTILO GERAL (PALETA COURO CURTIDO) --- */
       :root {
-        --primary: #D94F04; 
-        --secondary: #2E8B57; 
-        --accent: #F2A900; 
-        --text-dark: #2C2C2C;
-        --bg-body: #FDFBF7;
+        --bg-body: #5D4037;       /* Marrom Couro Envelhecido */
+        --bg-card: #3E2723;       /* Marrom Café Quase Preto */
+        --text-main: #FFE0B2;     /* Pêssego/Creme */
+        --accent: #00E676;        /* Verde Neon */
+        --accent-hover: #00c261;
+        
         --font-heading: "Merriweather", serif;
         --font-body: "Lato", sans-serif;
+        --header-height: 4rem; 
       }
+
       * { padding: 0; margin: 0; box-sizing: border-box; }
-      body { font-family: var(--font-body); background-color: var(--bg-body); color: var(--text-dark); line-height: 1.6; }
+      
+      body { 
+        font-family: var(--font-body); 
+        background-color: var(--bg-body); 
+        color: var(--text-main); 
+        line-height: 1.6; 
+      }
+
       a { text-decoration: none; color: inherit; transition: 0.3s; }
       ul { list-style: none; }
       img { width: 100%; display: block; object-fit: cover; }
       
-      /* Navbar */
-      nav { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
-      .nav__container { max-width: 1200px; margin: auto; padding: 1rem; display: flex; justify-content: space-between; align-items: center; }
-      .nav__logo { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 900; color: var(--primary); text-transform: uppercase; }
-      .nav__links { display: flex; gap: 1.5rem; }
-      .nav__links a { font-weight: 700; font-size: 0.9rem; text-transform: uppercase; }
-      .nav__links a:hover, .nav__links a.active { color: var(--primary); border-bottom: 2px solid var(--accent); }
+      /* --- NAVBAR --- */
+      nav { 
+        background: var(--bg-card); 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4); 
+        position: fixed; 
+        width: 100%; 
+        top: 0; 
+        z-index: 2000; 
+        border-bottom: 2px solid var(--bg-body);
+        height: var(--header-height);
+        display: flex;
+        align-items: center;
+      }
+
+      .nav__container { 
+        width: 95%; 
+        max-width: 100%; 
+        margin: auto; 
+        padding: 0 1rem; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+      }
       
-      /* Hero (FUNDO ALTERADO PARA header.jpg) */
+      .nav__logo { 
+        font-family: var(--font-heading); 
+        font-size: 1.2rem; 
+        font-weight: 900; 
+        color: var(--text-main); 
+        text-transform: uppercase; 
+        border: 2px solid var(--accent); 
+        padding: 5px 12px;
+        border-radius: 4px;
+        letter-spacing: 1px;
+        z-index: 2010; 
+      }
+      .nav__logo span { color: var(--accent); }
+
+      .nav__toggle, .nav__close {
+        display: none; 
+        font-size: 1.8rem;
+        color: var(--text-main);
+        cursor: pointer;
+      }
+      
+      .nav__toggle:hover { color: var(--accent); }
+
+      .nav__links { 
+        display: flex; 
+        align-items: center;
+        gap: 3rem; 
+      }
+
+      .nav__links a { 
+        font-weight: 700; 
+        font-size: 0.9rem; 
+        text-transform: uppercase; 
+        color: var(--text-main); 
+        opacity: 0.8; 
+      }
+
+      .nav__links a:hover, .nav__links a.active { 
+        color: var(--accent); 
+        opacity: 1;
+        text-shadow: 0 0 8px rgba(0, 230, 118, 0.4); 
+      }
+
+      /* --- NOVA SEÇÃO: DESTAQUES DA CULTURA (ZIG-ZAG) --- */
+      
+      /* Container da linha */
+      .feature-row {
+        display: flex;
+        align-items: center;
+        gap: 4rem; /* Espaço entre o texto e a imagem */
+        margin-bottom: 6rem; /* Espaço vertical entre cada destaque */
+      }
+      
+      /* LÓGICA ZIG-ZAG: Nas linhas pares (2ª, 4ª...), inverte a ordem */
+      @media (min-width: 769px) {
+        .feature-row:nth-child(even) {
+          flex-direction: row-reverse;
+        }
+        /* Ajuste do frame decorativo para o lado oposto nas linhas invertidas */
+        .feature-row:nth-child(even) .feature-image-box::before {
+          left: -15px;
+          top: 15px;
+        }
+      }
+
+      /* RESPONSIVIDADE: No celular, tudo fica em coluna (um embaixo do outro) */
+      @media (max-width: 768px) {
+        .feature-row {
+          flex-direction: column;
+          gap: 2rem;
+          margin-bottom: 4rem;
+        }
+        /* Remove a inversão no mobile para manter a ordem lógica (Imagem ou Texto primeiro) */
+        .feature-row:nth-child(even) {
+          flex-direction: column;
+        }
+      }
+
+      /* Área de Texto */
+      .feature-content {
+        flex: 1; /* Ocupa 50% do espaço */
+      }
+
+      /* Tag Pequena (ex: "ESPORTE & TRADIÇÃO") */
+      .feature-tag {
+        display: block;
+        color: var(--accent); /* Verde Neon */
+        font-weight: 900;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Título do Destaque */
+      .feature-title {
+        font-family: var(--font-heading);
+        font-size: 2rem;
+        color: #fff; /* Branco para destacar do fundo marrom */
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      /* Texto Descritivo */
+      .feature-text {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: var(--text-main);
+        opacity: 0.9;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        text-align: justify; /* Conforme solicitado no contexto geral */
+      }
+
+      /* Link "Saiba Mais" */
+      .link-arrow {
+        color: var(--accent);
+        font-weight: 700;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        transition: all 0.3s;
+      }
+
+      .link-arrow:hover {
+        gap: 15px; /* Efeito da seta se movendo */
+        color: #fff;
+        text-shadow: 0 0 5px var(--accent);
+      }
+
+      /* Área da Imagem */
+      .feature-image-box {
+        flex: 1; /* Ocupa 50% do espaço */
+        position: relative; /* Necessário para o frame decorativo */
+      }
+
+      /* A Imagem em si */
+      .feature-image-box img {
+        width: 100%;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        border: 1px solid rgba(255,255,255,0.1);
+        transition: transform 0.3s ease;
+        position: relative;
+        z-index: 2; /* Fica na frente da moldura */
+      }
+
+      .feature-image-box img:hover {
+        transform: scale(1.02); /* Leve zoom ao passar o mouse */
+      }
+
+      /* O Frame Decorativo (Borda deslocada atrás da foto) */
+      .feature-image-box::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 2px solid var(--accent); /* Moldura Neon */
+        border-radius: 12px;
+        top: 15px;
+        left: 15px; /* Deslocamento para a direita */
+        z-index: 1; /* Fica atrás da imagem */
+        opacity: 0.5;
+        transition: 0.3s;
+      }
+
+      /* --- RESPONSIVIDADE MENU --- */
+      @media screen and (max-width: 1024px) {
+        .nav__toggle { display: block; }
+
+        .nav__links {
+          position: fixed;
+          top: 0;
+          right: -100%; 
+          background-color: var(--bg-card);
+          width: 80%; 
+          height: 100vh;
+          flex-direction: column; 
+          padding-top: 6rem; 
+          gap: 2.5rem;
+          transition: 0.4s; 
+          box-shadow: -5px 0 15px rgba(0,0,0,0.7);
+          z-index: 2000;
+          border-left: 2px solid var(--accent);
+        }
+
+        .show-menu { right: 0; }
+
+        .nav__close {
+          display: block; 
+          position: absolute;
+          top: 1.5rem;
+          right: 1.5rem;
+          font-size: 2.5rem;
+          color: var(--accent);
+        }
+
+        .nav__links a {
+          font-size: 1.3rem;
+          width: 100%;
+          text-align: center;
+          padding: 10px;
+        }
+        
+        .nav__links a:hover {
+            background-color: rgba(0, 230, 118, 0.1);
+        }
+      }
+      
+      /* --- HERO --- */
       .hero { 
-        margin-top: 70px; 
+        margin-top: var(--header-height); 
         height: 70vh; 
-        background-color: #333; 
+        background-color: #222; 
         display: flex; 
         align-items: center; 
         justify-content: center; 
         text-align: center; 
         color: #fff; 
         padding: 1rem; 
-        /* Caminho da imagem de fundo */
-        background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('fotos/header.jpg'); 
+        background-image: url('fotos/arte (2).jpg'); 
         background-size: cover; 
         background-position: center; 
+        border-bottom: 4px solid var(--accent);
+        position: relative;
       }
-      .hero h1 { font-family: var(--font-heading); font-size: 3rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
       
-      /* Sections */
+      .hero-content {
+        background: rgba(62, 39, 35, 0.9); 
+        padding: 2rem;
+        border-radius: 8px;
+        border: 1px solid var(--accent);
+        max-width: 800px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      }
+
+      .hero h1 { 
+        font-family: var(--font-heading); 
+        font-size: 2.5rem; 
+        margin-bottom: 1rem; 
+        color: var(--text-main);
+      }
+
+      .hero-credit {
+        position: absolute;
+        bottom: 15px; 
+        left: 20px;   
+        font-style: italic;
+        font-size: 0.75rem; 
+        color: rgba(255, 255, 255, 0.7); 
+        z-index: 10;
+        font-family: var(--font-body);
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+      }
+
+      .hero p { font-size: 1.1rem; color: #fff; }
+      
+      /* --- SECTIONS --- */
       .section { padding: 4rem 1rem; max-width: 1200px; margin: auto; }
-      .section__title { font-family: var(--font-heading); font-size: 2rem; text-align: center; margin-bottom: 2rem; color: var(--primary); }
       
-      /* Guia Grid */
+      .section__title { 
+        font-family: var(--font-heading); 
+        font-size: 2rem; 
+        text-align: center; 
+        margin-bottom: 2rem; 
+        color: var(--accent); 
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      
+      /* O CARD (Destaque) */
+      .welcome-text {
+        text-align: center; 
+        max-width: 800px; 
+        margin: auto;
+        background: rgba(62, 39, 35, 0.3); 
+        padding: 2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--accent);
+        font-size: 1.1rem; /* Um pouco maior para destaque */
+        font-weight: 700;
+        margin-bottom: 2rem; /* Espaço para o texto abaixo */
+      }
+
+      /* O TEXTO FORA DO CARD (Narrativa) */
+      .story-text {
+        max-width: 800px;
+        margin: auto;
+        text-align: justify; /* Justificado para parecer livro */
+      }
+      
+      .story-text p {
+        margin-bottom: 1.5rem;
+        text-indent: 3rem; /* Recuo na primeira linha (estilo parágrafo de livro) */
+        opacity: 0.9;
+      }
+      
+      /* Em telas pequenas, remover o recuo exagerado */
+      @media(max-width: 768px) {
+        .story-text p { text-indent: 0; }
+        .hero h1 { font-size: 1.8rem; } 
+      }
+
+      /* --- CARDS GRID --- */
       .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center; }
-      .guide-card { background: #fff; padding: 2rem; border: 1px solid #ddd; border-radius: 8px; }
-      .guide-card i { font-size: 2.5rem; color: var(--secondary); display: block; margin-bottom: 1rem; }
       
-      /* Map Container */
+      .guide-card { 
+        background: var(--bg-card); 
+        padding: 2rem; 
+        border-radius: 8px; 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        transition: transform 0.3s ease;
+        border-bottom: 3px solid transparent; 
+      }
+      .guide-card:hover {
+        transform: translateY(-5px);
+        border-bottom: 3px solid var(--accent); 
+      }
+      
+      .guide-card i { 
+        font-size: 3rem; 
+        color: var(--accent); 
+        display: block; 
+        margin-bottom: 1rem; 
+        text-shadow: 0 0 10px rgba(0, 230, 118, 0.3);
+      }
+      .guide-card h3 { color: #fff; margin-bottom: 0.5rem; }
+      .guide-card p { color: var(--text-main); opacity: 0.9; }
+      
+      /* --- MAPA --- */
       .map-container {
         width: 100%;
         height: 400px;
         margin-top: 3rem;
-        border: 2px solid var(--text-dark);
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        border: 2px solid var(--bg-card);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      }
+      .map-container iframe {
+        filter: invert(90%) hue-rotate(180deg) contrast(90%);
       }
       
-      /* IFS Photo Card */
+      .map-link {
+        color: var(--accent);
+        font-weight: bold;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 1rem;
+        border: 1px solid var(--accent);
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+      }
+      .map-link:hover {
+        background: var(--accent);
+        color: var(--bg-card);
+      }
+
+      /* --- ESTILO DOS MAPAS ILUSTRATIVOS (Linear) --- */
+      .map-row {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        margin: 3rem 0; /* Espaçamento vertical */
+        background: rgba(0, 0, 0, 0.2); /* Fundo sutil para separar do resto */
+        padding: 2rem;
+        border-radius: 8px;
+        border: 1px dashed var(--stitch-color);
+      }
+
+      @media (max-width: 768px) {
+        .map-row { flex-direction: column; text-align: center; }
+      }
+
+      .map-content { flex: 1; }
+      
+      .map-content h3 {
+        font-family: var(--font-heading);
+        color: var(--accent);
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .map-frame { flex: 1.2; position: relative; }
+
+      .map-img {
+        width: 100%;
+        display: block;
+        border-radius: 4px;
+        border: 4px solid #D7CCC8; /* Borda cor de papel */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        filter: sepia(30%) contrast(110%); /* Efeito envelhecido */
+        transition: transform 0.3s;
+      }
+
+      .map-img:hover {
+        transform: scale(1.02) rotate(1deg);
+        filter: sepia(0%) contrast(100%);
+        border-color: var(--accent);
+      }
+
+      /* --- CARROSSEL DO MAPA --- */
+      .carousel-container {
+        position: relative;
+        flex: 1.2;
+        overflow: hidden; /* Esconde as imagens que não estão ativas se deslizarem */
+      }
+
+      .carousel-wrapper {
+        position: relative;
+        width: 100%;
+        /* A altura deve se ajustar à imagem */
+      }
+
+      /* Estilo das Imagens no Carrossel */
+      .map-slide {
+        display: none; /* Esconde todas por padrão */
+        width: 100%;
+        animation: fadeEffect 0.5s; /* Efeito suave de troca */
+      }
+
+      .map-slide.active {
+        display: block; /* Mostra apenas a imagem com a classe active */
+      }
+
+      /* Animação de Fade */
+      @keyframes fadeEffect {
+        from {opacity: 0.4} 
+        to {opacity: 1}
+      }
+
+      /* Botões de Navegação (Setas) */
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: var(--accent);
+        border: none;
+        font-size: 1.5rem;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 50%;
+        z-index: 10;
+        transition: 0.3s;
+      }
+
+      .carousel-btn:hover {
+        background-color: var(--accent);
+        color: #000;
+      }
+
+      .prev-btn { left: 10px; }
+      .next-btn { right: 10px; }
+
+      /* Indicadores (Bolinhas) */
+      .carousel-dots {
+        text-align: center;
+        margin-top: 10px;
+        position: absolute;
+        bottom: 15px;
+        width: 100%;
+        z-index: 10;
+      }
+
+      .dot {
+        cursor: pointer;
+        height: 10px;
+        width: 10px;
+        margin: 0 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+
+      .dot.active, .dot:hover {
+        background-color: var(--accent);
+      }
+      
+      /* --- EQUIPE --- */
       .ifs-card {
         max-width: 600px;
         margin: 2rem auto;
-        background: #fff;
+        background: var(--bg-card); 
         padding: 10px;
-        border: 1px solid #ddd;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        border: 1px solid #4a3b32;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.4);
       }
       .ifs-card img {
         border-radius: 4px;
+        opacity: 0.9;
       }
       .ifs-caption {
         font-size: 0.85rem;
-        color: #555;
+        color: var(--text-main);
         margin-top: 0.5rem;
         font-style: italic;
         text-align: center;
-        border-top: 1px solid #eee;
+        border-top: 1px solid #4a3b32;
         padding-top: 5px;
       }
 
+      .name-tag {
+        background: var(--bg-card);
+        color: var(--text-main);
+        padding: 8px 18px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        border: 1px solid var(--accent); 
+        margin-bottom: 0.5rem;
+        display: inline-block;
+      }
+
       /* Footer */
-      footer { background: var(--text-dark); color: #aaa; padding: 2rem; text-align: center; margin-top: 2rem; }
-      
-      @media(max-width: 768px) { .nav__links { display: none; } .hero h1 { font-size: 2rem; } }
+      footer { 
+        background: var(--bg-card); 
+        color: var(--text-main); 
+        padding: 3rem 1rem; 
+        text-align: center; 
+        margin-top: 4rem; 
+        border-top: 4px solid var(--accent);
+      }
     </style>
   </head>
   <body>
     <nav>
       <div class="nav__container">
-        <div class="nav__logo">Veja<span>Lagarto</span></div>
-        <div class="nav__links">
-          <a href="index.html" class="active">Início</a>
-          <a href="mercado.html">Feira & Trocas</a>
-          <a href="artesanato.html">Artesanato</a>
-          <a href="alimentos.html">Alimentos</a>
+        <div class="nav__logo">Raízes<span>Lagarto</span></div>
+        
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-menu-line"></i>
+        </div>
+
+        <div class="nav__links" id="nav-menu">
+          <div class="nav__close" id="nav-close">
+            <i class="ri-close-line"></i>
+          </div>
+
+          <a href="index.html" class="active" onclick="closeMenu()">Início</a>
+          <a href="quemSomos.html" onclick="closeMenu()">Quem Somos</a>
+          <a href="vaquejada.html" onclick="closeMenu()">Vaquejada</a>
+          <a href="cultura.html" onclick="closeMenu()">Macaxeira & Cultura</a>
+          <a href="praca.html" onclick="closeMenu()">Praça e Eventos</a>
+          <a href="ajuda.html" onclick="closeMenu()">Ajuda ao visitante</a>
+          <a href="compartilhe.html" onclick="closeMenu()">Faça parte!</a>
         </div>
       </div>
     </nav>
 
     <header class="hero">
-      <div>
+      <div class="hero-content">
         <h1>Vozes e Retratos da Feira</h1>
         <p>Um mergulho na cultura, história e tradição de Lagarto-SE.</p>
       </div>
+      <span class="hero-credit">Foto: Vicente Gabriel Loiola Souza (2026)</span>
     </header>
 
     <section class="section">
       <h2 class="section__title">Bem-vindo à Nossa Feira</h2>
-      <p style="text-align: center; max-width: 800px; margin: auto;">
-        Mais do que um local de compras, a Feira de Lagarto é um patrimônio vivo. Aqui, as histórias se cruzam entre as bancas de mandioca, o cheiro do fumo de rolo e o barulho da feira das trocas. Navegue pelas abas acima para conhecer cada detalhe.
-      </p>
+      
+      <div class="welcome-text">
+        <p>
+          Lagarto não é apenas um município do interior de Sergipe. É um território onde tradição, economia e identidade se tecem juntos há séculos, criando uma trama cultural que resiste ao tempo e segue alimentando gerações.
+        </p>
+      </div>
+
+      <div class="story-text">
+        <p>
+          Lagarto é frequentemente invisível nos roteiros turísticos convencionais. Cidades maiores, praias famosas, destinos já consolidados ganham atenção enquanto cidades do interior — especialmente no sertão nordestino — permanecem desconhecidas, mesmo sendo portadoras de riquezas culturais imensa.
+        </p>
+        <p>
+          A motivação foi simples: Lagarto merecia ser conhecido. Não pelas razões que turistas costumam buscar (praias, resorts, atrações artificiais), mas pelas razões certas — pelas pessoas, pela autenticidade, pela história que pulsa nas veias da comunidade.
+        </p>
+      </div>
+
     </section>
 
-    <section class="section" style="background: #fff;">
-      <h2 class="section__title">Guia do Turista</h2>
+    <section class="section">
+      <h2 class="section__title">Guia Rápido</h2>
+      
       <div class="guide-grid">
         <div class="guide-card">
           <i class="ri-map-pin-line"></i>
           <h3>Localização</h3>
-          <p>Centro de Lagarto/SE. Ocorre nas praças e ruas ao redor do Mercado Municipal.</p>
+          <p>Centro de Lagarto/SE. Ocorre nas praças e ruas ao redor do Mercado Municipal. Verifique o mapa abaixo</p>
         </div>
         <div class="guide-card">
           <i class="ri-time-line"></i>
           <h3>Dias e Horários</h3>
-          <p>Tradicionalmente às <strong>Segundas e Sextas</strong>. Melhor horário: 06:00 às 11:00.</p>
+          <p>Tradicionalmente às <strong style="color:var(--accent)">Segundas e Sextas</strong>. <br> Horário de funcionamento: 06:00 às 17:00.</p>
         </div>
         <div class="guide-card">
           <i class="ri-camera-lens-line"></i>
           <h3>O que ver?</h3>
-          <p>Visite a Feira das Trocas, compre artesanato de barro e prove o bolo de pote local.</p>
+          <p>Experimente o bolo no bar da Dona Leu, compre artesanato de barro e prove a culinaria nordestina.</p>
+        </div>
+        <div class="guide-card">
+          <i class="ri-shield-cross-line"></i>
+          <h3>Emergência</h3>
+          <p>Hospital Universitário e Posto Policial localizados a 500m da feira. <br> Hospital Maroto a 600m </p>
+        </div>
+      </div>
+      <!-- Para cada mapa-->
+      <div class="map-row">
+        <div class="map-content">
+          <h3>Totalidade da Feira</h3>
+          <p class="feature-text">
+            Um olhar sobre o escopo completo da feira.
+          </p>
+        </div>
+        <div class="map-frame carousel-container">
+          <button class="carousel-btn prev-btn">❮</button>
+          
+          <div class="carousel-wrapper">
+            <img src="fotos/escopoFeira.jpg" class="map-img map-slide active" alt="Mapa Centro Expandido">
+            <img src="fotos/escopoFeiraV2.jpg" class="map-img map-slide" alt="Mapa Detalhe Ruas">
+          </div>
+          
+          <button class="carousel-btn next-btn">❯</button>
+          
+          <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>  
+
+      <div class="map-row">
+        <div class="map-content">
+          <h3>Feira e Utilidades</h3>
+          <p class="feature-text">
+            Um olhar sobre o caminho entre a feira e as utilidades ao redor.
+          </p>
+        </div>
+        <div class="map-frame carousel-container">
+          <button class="carousel-btn prev-btn">❮</button>
+          
+          <div class="carousel-wrapper">
+             <img src="fotos/ajudaFeiraV2.jpg" class="map-img map-slide active" alt="Mapa Ajuda 1">
+             <img src="fotos/ajudaFeira.jpg" class="map-img map-slide" alt="Mapa Ajuda 2">
+          </div>
+          
+          <button class="carousel-btn next-btn">❯</button>
+          
+          <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+          </div>
         </div>
       </div>
 
       <div class="map-container">
-         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.6385317769584!2d-37.662243684698535!3d-10.923180492219777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7101e4a05555555%3A0x0!2zMTDCsDU1JzIzLjUiUyAzN8KwMzknMzYuMiJX!5e0!3m2!1spt-BR!2sbr!4v1600000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.416805086576!2d-37.66318992415843!3d-10.916892392233857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x71aa6026a7925e5%3A0x673990499e74653a!2sMercado%20Municipal%20de%20Lagarto!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
       <div style="text-align: center; margin-top: 1rem;">
-         <a href="https://maps.app.goo.gl/D94o3iLLoGHC6u6t5" target="_blank" style="color:var(--primary); font-weight:bold; text-decoration: underline;">Abrir Mapa no Google Maps</a>
+         <a href="https://maps.app.goo.gl/kX7Y8Z" target="_blank" class="map-link">Abrir Mapa no Google Maps</a>
       </div>
     </section>
 
     <section class="section">
-      <h2 class="section__title">Equipe do Projeto</h2>
+      <h2 class="section__title">Destaques da Cultura</h2>
       
-      <div class="ifs-card">
-        <img src="fotos/ifs.jpg" alt="Instituto Federal de Sergipe - Campus Lagarto">
-        <div class="ifs-caption">
-           Foto: João Pedro Santana Silva Santos (2026)
+      <div class="feature-row">
+        <div class="feature-content">
+          <span class="feature-tag">Esporte & Tradição</span>
+          <h3 class="feature-title">Vaquejada de Lagarto</h3>
+          <p class="feature-text">
+            Muito mais que um esporte, a vaquejada é a alma do sertanejo. O Parque das Palmeiras é palco de grandes disputas e celebra a força do homem do campo, reunindo multidões e mantendo viva a tradição do gado e do cavalo.
+          </p>
+          <a href="vaquejada.html" class="link-arrow">
+            Saiba mais <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+        <div class="feature-image-box">
+          <img src="fotos/vaquejada.jpg" alt="Vaquejada em Lagarto">
         </div>
       </div>
 
-      <p style="text-align: center; margin-bottom: 1rem; font-weight: bold;">Discentes de Sistemas de Informação - IFS Lagarto</p>
-      
-      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-        <span style="background:#ddd; padding:5px 15px; border-radius:20px;">João Pedro</span>
-        <span style="background:#ddd; padding:5px 15px; border-radius:20px;">Gustavo Anthony</span>
-        <span style="background:#ddd; padding:5px 15px; border-radius:20px;">Ramon Oliveira</span>
-        <span style="background:#ddd; padding:5px 15px; border-radius:20px;">Vicente Gabriel</span>
-        <span style="background:#ddd; padding:5px 15px; border-radius:20px;">Luiz Eduardo</span>
-        <span style="background:#ddd; padding:5px 15px; border-radius:20px;">João Antônio</span>
+      <div class="feature-row">
+        <div class="feature-content">
+          <span class="feature-tag">Sabor da Terra</span>
+          <h3 class="feature-title">Macaxeira & Raízes</h3>
+          <p class="feature-text">
+            Lagarto é a capital da mandioca. Da farinha torrada ao beiju, a raiz sustenta a economia e a mesa das famílias. Conheça o processo de produção nas casas de farinha e a importância desse alimento para nossa identidade.
+          </p>
+          <a href="cultura.html" class="link-arrow">
+            Descobrir sabores <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+        <div class="feature-image-box">
+          <img src="fotos/mandioca.jpg" alt="Cultura da Mandioca">
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-content">
+          <span class="feature-tag">Utilidade Pública</span>
+          <h3 class="feature-title">Ajuda ao Visitante</h3>
+          <p class="feature-text">
+            Para aproveitar o melhor de Lagarto com segurança e tranquilidade. Encontre aqui informações sobre postos policiais, hospitais, transporte e dicas para navegar pela feira e arredores sem preocupações.
+          </p>
+          <a href="ajuda.html" class="link-arrow">
+            Ver mapa e dicas <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+        <div class="feature-image-box">
+          <img src="fotos/maroto.jpg" alt="Ajuda ao Visitante">
+        </div>
       </div>
     </section>
 
     <footer>
-      <p>© 2026 Vozes e Retratos. Fotos Autorais. Projeto Acadêmico.</p>
+      <p>© 2026 Raízes de Lagarto. Fotos Autorais. Projeto Acadêmico.</p>
     </footer>
+
+    <script src="./src/js/script.js"></script>
   </body>
 </html>

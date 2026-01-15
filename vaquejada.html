@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vaquejada | Raízes de Lagarto</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+      /* --- ESTILO GERAL --- */
+      :root {
+        --bg-body: #5D4037; --bg-card: #3E2723; --text-main: #FFE0B2;
+        --accent: #00E676; --accent-hover: #00c261;
+        --font-heading: "Merriweather", serif; --font-body: "Lato", sans-serif;
+        --header-height: 4rem; 
+      }
+      * { padding: 0; margin: 0; box-sizing: border-box; }
+      body { font-family: var(--font-body); background-color: var(--bg-body); color: var(--text-main); line-height: 1.8; }
+      a { text-decoration: none; color: inherit; transition: 0.3s; }
+      ul { list-style: none; }
+      img { width: 100%; display: block; object-fit: cover; }
+      
+      /* Navbar */
+      nav { background: var(--bg-card); box-shadow: 0 4px 15px rgba(0,0,0,0.4); position: fixed; width: 100%; top: 0; z-index: 2000; border-bottom: 2px solid var(--bg-body); height: var(--header-height); display: flex; align-items: center; }
+      .nav__container { width: 95%; max-width: 100%; margin: auto; padding: 0 1rem; display: flex; justify-content: space-between; align-items: center; }
+      .nav__logo { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 900; color: var(--text-main); text-transform: uppercase; border: 2px solid var(--accent); padding: 5px 12px; border-radius: 4px; letter-spacing: 1px; z-index: 2010; }
+      .nav__logo span { color: var(--accent); }
+      .nav__toggle, .nav__close { display: none; font-size: 1.8rem; color: var(--text-main); cursor: pointer; }
+      .nav__toggle:hover { color: var(--accent); }
+      .nav__links { display: flex; align-items: center; gap: 3rem; }
+      .nav__links a { font-weight: 700; font-size: 0.9rem; text-transform: uppercase; color: var(--text-main); opacity: 0.8; }
+      .nav__links a:hover, .nav__links a.active { color: var(--accent); opacity: 1; text-shadow: 0 0 8px rgba(0, 230, 118, 0.4); border-bottom: 2px solid var(--accent); }
+      
+      @media screen and (max-width: 1024px) {
+        .nav__toggle { display: block; }
+        .nav__links { position: fixed; top: 0; right: -100%; background-color: var(--bg-card); width: 80%; height: 100vh; flex-direction: column; padding-top: 6rem; gap: 2.5rem; transition: 0.4s; box-shadow: -5px 0 15px rgba(0,0,0,0.7); z-index: 2000; border-left: 2px solid var(--accent); }
+        .show-menu { right: 0; }
+        .nav__close { display: block; position: absolute; top: 1.5rem; right: 1.5rem; font-size: 2.5rem; color: var(--accent); }
+        .nav__links a { font-size: 1.3rem; width: 100%; text-align: center; padding: 10px; }
+      }
+
+      /* Hero */
+      .hero { margin-top: var(--header-height); height: 70vh; background-color: #222; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 1rem; background-image: url('fotos/vaquejada_hero.jpg'); background-size: cover; background-position: center; border-bottom: 4px solid var(--accent); position: relative; }
+      .hero-content { background: rgba(62, 39, 35, 0.9); padding: 2rem; border-radius: 8px; border: 1px solid var(--accent); max-width: 800px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+      .hero h1 { font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 1rem; color: var(--text-main); }
+      .hero p { font-size: 1.1rem; color: #fff; }
+      .hero-credit { position: absolute; bottom: 15px; left: 20px; font-style: italic; font-size: 0.75rem; color: rgba(255, 255, 255, 0.7); z-index: 10; font-family: var(--font-body); text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+
+      /* Estrutura de Texto */
+      .section { padding: 4rem 1rem; max-width: 1000px; margin: auto; }
+      .text-block h2 { font-family: var(--font-heading); color: var(--accent); font-size: 2rem; margin-top: 3rem; margin-bottom: 1.5rem; border-left: 5px solid var(--accent); padding-left: 20px; line-height: 1.2; }
+      .text-block h3 { font-family: var(--font-heading); color: #fff; font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; }
+      .text-block p { margin-bottom: 1.5rem; text-align: justify; opacity: 0.95; font-size: 1.1rem; color: #fff; }
+      .text-block strong { color: var(--accent); }
+      
+      /* --- CARROSSEL E SERVIÇOS --- */
+      .slide-wrapper { display: none; width: 100%; animation: fadeEffect 0.5s; }
+      .slide-wrapper.active { display: block; }
+      .slide-wrapper img { width: 100%; height: 350px; object-fit: cover; border-radius: 8px 8px 0 0; display: block; border-bottom: 4px solid var(--accent); }
+      .slide-caption-box { background: rgba(0, 0, 0, 0.8); color: #fff; padding: 12px 15px; font-size: 0.95rem; text-align: center; border-radius: 0 0 8px 8px; font-style: italic; border-top: 1px solid rgba(255,255,255,0.1); }
+      
+      .service-row { display: flex; flex-wrap: wrap; gap: 3rem; margin: 4rem 0; background: rgba(62, 39, 35, 0.3); padding: 2rem; border-radius: 12px; border: 1px dashed rgba(255, 255, 255, 0.2); align-items: flex-start; }
+      .service-carousel-col { flex: 1.5; min-width: 300px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-radius: 8px; }
+      .service-info-col { flex: 1; min-width: 280px; padding: 2rem; background: var(--bg-card); border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.05); }
+      .service-info-col h3 { color: var(--accent); font-family: var(--font-heading); margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; font-size: 1.5rem; }
+      .info-list { list-style: none; margin-bottom: 2rem; }
+      .info-list li { margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 12px; color: var(--text-main); font-size: 1rem; }
+      .info-list i { color: var(--accent); font-size: 1.3rem; margin-top: 2px; }
+      .btn-maps { display: block; width: 100%; text-align: center; padding: 14px; background: transparent; border: 1px solid var(--accent); color: var(--accent); font-weight: 800; border-radius: 4px; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s; letter-spacing: 1px; }
+      .btn-maps:hover { background: var(--accent); color: #000; box-shadow: 0 0 20px rgba(0, 230, 118, 0.5); }
+
+      /* Botões Carrossel */
+      .carousel-btn { position: absolute; top: 45%; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.7); color: var(--accent); border: 2px solid transparent; font-size: 1.5rem; padding: 10px 16px; cursor: pointer; border-radius: 50%; z-index: 10; transition: 0.3s; }
+      .carousel-btn:hover { background-color: var(--accent); color: #000; border-color: #000; }
+      .prev-btn { left: -20px; } .next-btn { right: -20px; }
+      
+      @keyframes fadeEffect { from {opacity: 0.4} to {opacity: 1} }
+
+      /* Footer */
+      footer { background: var(--bg-card); color: var(--text-main); padding: 4rem 1rem; text-align: center; margin-top: 6rem; border-top: 4px solid var(--accent); }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__container">
+        <div class="nav__logo">Raízes<span>Lagarto</span></div>
+        <div class="nav__toggle" id="nav-toggle"><i class="ri-menu-line"></i></div>
+        <div class="nav__links" id="nav-menu">
+          <div class="nav__close" id="nav-close"><i class="ri-close-line"></i></div>
+          <a href="index.html" onclick="closeMenu()">Início</a>
+          <a href="quemSomos.html" onclick="closeMenu()">Quem Somos</a>
+          <a href="vaquejada.html" class="active" onclick="closeMenu()">Vaquejada</a>
+          <a href="cultura.html" onclick="closeMenu()">Macaxeira & Cultura</a>
+          <a href="praca.html" onclick="closeMenu()">Praça e Eventos</a>
+          <a href="ajuda.html" onclick="closeMenu()">Ajuda ao visitante</a>
+          <a href="compartilhe.html" onclick="closeMenu()">Faça parte!</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-content">
+        <h1>Capital Nacional da Vaquejada</h1>
+        <p>Séculos de tradição, esporte e identidade cultural.</p>
+      </div>
+      <span class="hero-credit">Foto: Acervo Parque Zezé Rocha</span>
+    </header>
+
+    <section class="section text-block">
+      <h2>Origens no Sertão e a Transformação</h2>
+      <p>
+        A vaquejada emerge das raízes mais profundas da história brasileira colonial, especificamente da vida áspera e desafiadora do sertão nordestino entre os séculos XVII e XVIII. Sua origem não é acidental — é pragmática e enraizada no trabalho cotidiano de homens que enfrentavam a natureza selvagem do interior semiárido.
+      </p>
+      <p>
+        Naquela época, o gado disperso pelas vastas terras necessitava ser reunido. Os vaqueiros desenvolveram técnicas sofisticadas de manejo. Montados em cavalos, perseguiam o gado bravo até conseguir derrubá-los. Com o tempo, aquilo que começou como necessidade laboral evoluiu para prática competitiva.
+      </p>
+
+      <h3>Lagarto e a Modernização (1963)</h3>
+      <p>
+        O que hoje é reconhecido como Capital Nacional da Vaquejada começou com uma visita simples a uma cidade próxima na Bahia, em 1962. Quatro homens — Landulfo Alves, João de Cândido, Zé de Sérgio e João Miúdo — tiveram a ideia audaciosa de trazer o esporte para cá.
+      </p>
+      <p>
+        A primeira vaquejada lagartense ocorreu em fevereiro de 1963, na rua Simão Dias. O sucesso foi tão imediato que uma segunda edição foi feita no mesmo ano, consolidando a paixão da cidade.
+      </p>
+      <p>
+        A próxima fase crucial foi a construção do <strong>Parque de Vaquejada Zezé Rocha</strong>, inaugurado nos anos 1960. Esse espaço foi revolucionário, oferecendo infraestrutura profissional que transformou a competição local em um grande evento nacional.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="service-row">
+        <div class="service-carousel-col carousel-container">
+          <button class="carousel-btn prev-btn">❮</button>
+          
+          <div class="carousel-wrapper">
+             <div class="map-slide slide-wrapper active">
+                <img src="fotos/zeze2.jpeg" alt="">
+                <div class="slide-caption-box">Autor: Luiz Eduardo Andrade de Oliveira (2026)</div>
+             </div>
+             <div class="map-slide slide-wrapper">
+                <img src="fotos/zeze1.jpeg" alt="">
+                <div class="slide-caption-box">Autor: Luiz Eduardo Andrade de Oliveira (2026)</div>
+             </div>
+             <div class="map-slide slide-wrapper">
+                <img src="#" alt="Entrada do Parque">
+                <div class="slide-caption-box">Autor: Luiz Eduardo Andrade de Oliveira (2026)</div>
+             </div>
+          </div>
+          
+          <button class="carousel-btn next-btn">❯</button>
+        </div>
+
+        <div class="service-info-col">
+          <h3>Parque Zezé Rocha</h3>
+          <ul class="info-list">
+            <li>
+              <i class="ri-calendar-event-line"></i>
+              <span><strong>Grande Vaquejada:</strong> Última semana de Agosto (Anual).</span>
+            </li>
+            <li>
+              <i class="ri-time-line"></i>
+              <span><strong>Funcionamento:</strong> Aberto para visitas e treinos (consulte a administração).</span>
+            </li>
+            <li>
+              <i class="ri-map-pin-line"></i>
+              <span>Av. Raimunda Rodrigues Réis, 1 - Cidade Nova, Lagarto - SE, 49400-000</span>
+            </li>
+          </ul>
+          <a href="https://maps.app.goo.gl/ddUJUBCxaTc5QAbp7" target="_blank" class="btn-maps">Ver no Google Maps</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section text-block">
+      <h2>Esporte, Cultura e Lei</h2>
+      <p>
+        Uma vaquejada é, em essência, uma competição em que dois vaqueiros montados a cavalo tentam derrubar um boi solto puxando-o pelo rabo dentro de uma pista demarcada. Mas é muito mais que força: é uma dança coreografada entre homem, cavalo e animal que exige precisão técnica absoluta.
+      </p>
+      
+      <h3>Reconhecimento Oficial</h3>
+      <p>
+        Em 2016, a vaquejada foi reconhecida como Patrimônio Cultural Imaterial do Brasil. Mais recentemente, em 2024, Lagarto recebeu o reconhecimento definitivo: a <strong>Lei Federal nº 14.930</strong>, sancionada pelo presidente da República, oficializou a cidade como a <strong>Capital Nacional da Vaquejada</strong>. A lei destaca que o esporte é um "símbolo que une gerações" e que "Lagarto respira essa cultura".
+      </p>
+      
+      <h3>Impacto Econômico</h3>
+      <p>
+        A vaquejada é um motor econômico vital. Durante os eventos, a cidade inteira se mobiliza. Hotéis lotam semanas antes, restaurantes operam na capacidade máxima e o comércio de produtos especializados (arreios, roupas) aquece. O evento gera centenas de empregos diretos e indiretos, desde o tratador dos animais até o setor de serviços.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="service-row">
+        <div class="service-info-col">
+          <h3>Selaria Galdino</h3>
+          <p style="font-size: 0.95rem; margin-bottom: 1.5rem; opacity: 0.9; color: #fff;">
+            O ponto de encontro para quem vive a vaquejada. Tudo o que você precisa para montaria com a qualidade de quem entende do esporte.
+          </p>
+          <ul class="info-list">
+            <li>
+              <i class="ri-store-2-line"></i>
+              <span><strong>Produtos:</strong> Selas, Arreios, Botas e Chapéus.</span>
+            </li>
+            <li>
+              <i class="ri-time-line"></i>
+              <span><strong>Aberto:</strong> Seg à Sex (08h-18h), Sáb (08h-13h).</span>
+            </li>
+            <li>
+              <i class="ri-map-pin-line"></i>
+              <span>Centro, Lagarto - SE, 49400-000.</span>
+            </li>
+          </ul>
+          <a href="https://maps.app.goo.gl/3J9cSvLDa1RJehsx6" target="_blank" class="btn-maps">Ver no Google Maps</a>
+        </div>
+
+        <div class="service-carousel-col carousel-container">
+          <button class="carousel-btn prev-btn">❮</button>
+          
+          <div class="carousel-wrapper">
+             <div class="map-slide slide-wrapper active">
+                <img src="fotos/s1.jpg" alt="Selas de Couro">
+                <div class="slide-caption-box">Autor: Gustavo Anthony Ribeiro Santana (2026)</div>
+             </div>
+             <div class="map-slide slide-wrapper">
+                <img src="fotos/s2.jpg" alt="Botas de Couro">
+                <div class="slide-caption-box">Autor: Gustavo Anthony Ribeiro Santana (2026)</div>
+             </div>
+              <div class="map-slide slide-wrapper">
+                <img src="fotos/s3.jpg" alt="Botas de Couro">
+                <div class="slide-caption-box">Autor: Gustavo Anthony Ribeiro Santana (2026)</div>
+             </div>
+              <div class="map-slide slide-wrapper">
+                <img src="fotos/s4.jpg" alt="Botas de Couro">
+                <div class="slide-caption-box"> Autor: Gustavo Anthony Ribeiro Santana (2026)</div>
+             </div>
+              <div class="map-slide slide-wrapper">
+                <img src="fotos/s5.jpg" alt="Botas de Couro">
+                <div class="slide-caption-box">Autor: Gustavo Anthony Ribeiro Santana (2026)</div>
+             </div>
+              <div class="map-slide slide-wrapper">
+                <img src="fotos/s6.jpg" alt="Botas de Couro">
+                <div class="slide-caption-box">Autor: Gustavo Anthony Ribeiro Santana (2026)</div>
+             </div>
+          </div>
+          
+          <button class="carousel-btn next-btn">❯</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section text-block">
+      <h2>Bem-Estar Animal e Regulamentação</h2>
+      <p>
+        A vaquejada moderna passou por uma profunda evolução regulatória. Hoje, a prática segue padrões rigorosos definidos pelo Ministério da Agricultura para garantir a integridade dos animais. A presença de um juiz de bem-estar animal e de uma equipe veterinária é obrigatória em todos os eventos oficiais.
+      </p>
+      <p>
+        As regras são claras: é <strong>proibido</strong> o uso de objetos cortantes ou de choque, e o uso do protetor de cauda é obrigatório para evitar lesões no boi. Qualquer sinal de maus-tratos resulta na desclassificação imediata do competidor. Em Lagarto, o orgulho reside não apenas na festa, mas em realizá-la de forma segura e ética.
+      </p>
+    </section>
+    <section class="section">
+        <div class="section text-block">
+            <h2>Seção Extra para Amantes de Artesanato</h2>
+        </div>
+      <div class="service-row">
+        <div class="service-carousel-col carousel-container">
+          <button class="carousel-btn prev-btn">❮</button>
+          
+          <div class="carousel-wrapper">
+             <div class="map-slide slide-wrapper active">
+                <img src="fotos/artesanato (2).jpg" alt="">
+                <div class="slide-caption-box">Foto: Vicente Gabriel Loiola Souza (2026)</div>
+             </div>
+             <div class="map-slide slide-wrapper">
+                <img src="fotos/artesanato (5).jpg" alt="">
+                <div class="slide-caption-box">Foto: Vicente Gabriel Loiola Souza (2026)</div>
+             </div>
+             <div class="map-slide slide-wrapper">
+                <img src="fotos/artesanato (6).jpg" alt="">
+                <div class="slide-caption-box">Foto: Vicente Gabriel Loiola Souza (2026)</div>
+             </div>
+              <div class="map-slide slide-wrapper">
+                <img src="fotos/artesanato (8).jpg" alt="">
+                <div class="slide-caption-box">Foto: Vicente Gabriel Loiola Souza (2026)</div>
+             </div>
+              <div class="map-slide slide-wrapper">
+                <img src="fotos/artesanato (9).jpg" alt="">
+                <div class="slide-caption-box">Foto: Vicente Gabriel Loiola Souza (2026)</div>
+             </div>
+              <div class="map-slide slide-wrapper">
+                <img src="fotos/artesanato (10).jpg" alt="">
+                <div class="slide-caption-box">Foto: Vicente Gabriel Loiola Souza (2026)</div>
+             </div>
+              <div class="map-slide slide-wrapper">
+                <img src="fotos/artesanato (12).jpg" alt="">
+                <div class="slide-caption-box">Foto: Vicente Gabriel Loiola Souza (2026)</div>
+             </div>
+              <div class="map-slide slide-wrapper">
+                <img src="fotos/artesanato (13).jpg" alt="">
+                <div class="slide-caption-box">Foto: Vicente Gabriel Loiola Souza (2026)</div>
+             </div>
+              <div class="map-slide slide-wrapper">
+                <img src="fotos/artesanato (14).jpg" alt="">
+                <div class="slide-caption-box">Foto: Vicente Gabriel Loiola Souza (2026)</div>
+             </div>
+              <div class="map-slide slide-wrapper">
+                <img src="fotos/artesanato (15).jpg" alt="">
+                <div class="slide-caption-box">Foto: Vicente Gabriel Loiola Souza (2026)</div>
+             </div>
+              <div class="map-slide slide-wrapper">
+                <img src="fotos/artesanato (25).jpg" alt="">
+                <div class="slide-caption-box">Foto: Vicente Gabriel Loiola Souza (2026)</div>
+             </div>
+          </div>
+          
+          <button class="carousel-btn next-btn">❯</button>
+        </div>
+
+        <div class="service-info-col">
+          <h3>Artesanato e Artes</h3>
+          <p style="font-size: 0.95rem; margin-bottom: 1.5rem; opacity: 0.9; color: #fff;">
+            Conheça o trabalho artesanal de Lagarto.
+          </p>
+          <ul class="info-list">
+            <li>
+              <i class="ri-hammer-line"></i>
+              <span><strong>Proprietária:</strong> Josineide dos Santos Rodrigues.</span>
+            </li>
+        <!--<li>
+              <i class="ri-phone-line"></i>
+              <span><strong>Encomendas:</strong> (79) 99999-0000</span>
+            </li>-->
+            <li>
+              <i class="ri-map-pin-line"></i>
+              <span>R. Antônio Luis Xisto.</span>
+            </li>
+          </ul>
+          <a href="https://maps.app.goo.gl/Q734cAFSEpYyR2hS9" target="_blank" class="btn-maps">Ver no Google Maps</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section text-block">
+      <h2>Símbolo de Resistência</h2>
+      <p>
+        A vaquejada em Lagarto é mais que esporte ou entretenimento. É a materialização de valores que sustentaram o Nordeste: coragem, resistência e comunidade. Quando 900 duplas de vaqueiros descem na pista do Parque Zezé Rocha, Lagarto reafirma que o sertão é um lugar de engenho, beleza e alegria.
+      </p>
+    </section>
+
+    <footer>
+      <p>© 2026 Raízes de Lagarto. Fotos Autorais. Projeto Acadêmico.</p>
+    </footer>
+
+    <script src="./src/js/script.js"></script>
+  </body>
+</html>
